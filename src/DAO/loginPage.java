@@ -18,6 +18,8 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class loginPage extends JFrame {
 
@@ -82,6 +84,7 @@ public class loginPage extends JFrame {
 		panelLogin.add(lblBolle2);
 
 		JButton btnAccesso = new JButton("accedi");
+		
 		btnAccesso.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				// cntr.quesryNapoletana(textFieldMatricola.getText(),

@@ -14,7 +14,7 @@ import java.awt.GridBagConstraints;
 import java.awt.Insets;
 import java.awt.GridLayout;
 import javax.swing.JLabel;
-import net.miginfocom.swing.MigLayout;
+//import net.miginfocom.swing.MigLayout;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import java.awt.Font;
