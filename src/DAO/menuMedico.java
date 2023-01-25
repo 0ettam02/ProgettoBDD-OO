@@ -15,15 +15,12 @@ import java.awt.event.ActionEvent;
 public class menuMedico extends JFrame {
 
 	private JPanel contentPane;
-	public cartellaClinica cartellaClinicaTartarughe;
 	//public accesso Accesso;
 
 	public menuMedico() {
 		setTitle("menu medico");
 		
-		cartellaClinicaTartarughe  = new cartellaClinica(this);
 		controller cntr = new controller();
-		ClasseStatistiche statistiche = new ClasseStatistiche(this);
 		
 		setBackground(new Color(127, 255, 212));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -41,22 +38,9 @@ public class menuMedico extends JFrame {
 		contentPane.add(panelMnuMedico);
 		panelMnuMedico.setLayout(null);
 		
-		JButton btnStatistiche = new JButton("statistiche");
-		btnStatistiche.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				statistiche.setVisible(true);
-				enable(false);
-			}
-		});
-		btnStatistiche.setFont(new Font("Yu Gothic Light", Font.PLAIN, 20));
-		btnStatistiche.setBounds(277, 145, 173, 46);
-		panelMnuMedico.add(btnStatistiche);
-		
 		JButton btnCartellaClinica = new JButton("cartella clinica");
 		btnCartellaClinica.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				cartellaClinicaTartarughe.setVisible(true);
-				enable(false);
 			}
 		});
 		btnCartellaClinica.setFont(new Font("Yu Gothic Light", Font.PLAIN, 20));

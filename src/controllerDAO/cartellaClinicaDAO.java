@@ -10,13 +10,11 @@ public class cartellaClinicaDAO {
 	// QUERY INSERIMENTO CARTELLA
 		// CLINICA--------------------------------------------------------------------------------------------------------------------------
 		public void queryInsertCartella(String id_cartella, String tartaruga, String nome_tartaruga, String info_specie,
-				String lunghezza, String larghezza, String peso, String luogo_ritrovamento, String descrizione,
-				String data_liberazione, String data_accesso, String data_decesso) {
+				String lunghezza, String larghezza, String peso, String luogo_ritrovamento, String descrizione, String data_ingresso) {
 			try {
 				cl.st.executeUpdate("INSERT INTO cartella_clinica VALUES ('" + id_cartella + "','" + tartaruga + "','"
 						+ nome_tartaruga + "','" + info_specie + "','" + lunghezza + "','" + larghezza + "','" + peso
-						+ "','" + luogo_ritrovamento + "','" + descrizione + "','" + data_liberazione + "','" + data_accesso
-						+ "','" + data_decesso + "')");
+						+ "','" + luogo_ritrovamento + "','" + descrizione + "','" + data_ingresso + "', 0)");
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();

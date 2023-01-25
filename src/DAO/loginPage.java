@@ -6,6 +6,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import DAOricercatore.accessoRicercatore;
 import controllerDAO.loginPageDAO;
 
 import java.awt.Color;
@@ -13,6 +14,10 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
 import java.awt.Font;
+import java.awt.GradientPaint;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+
 import javax.swing.JTextField;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -39,32 +44,51 @@ public class loginPage extends JFrame {
 		Menu = new menu();
 		menuMedicoVet = new menuMedico();
 		Accesso = new accesso();
+		accessoRicercatore AR = new accessoRicercatore();
 
 		setTitle("login page");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 779, 508);
-		contentPane = new JPanel();
-		contentPane.setBackground(new Color(127, 255, 212));
+		contentPane = new JPanel() {
+			@Override
+			protected void paintComponent(Graphics g) {
+				super.paintComponent(g);
+				Graphics2D g2d = (Graphics2D) g;
+				GradientPaint gp = new GradientPaint(0, 0, Color.decode("#7fffd4"), 0, getHeight(), Color.decode("#008080"));
+				g2d.setPaint(gp);
+				g2d.fillRect(0, 0, getWidth(), getHeight());
+			}
+		};
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 
-		JPanel panelLogin = new JPanel();
+		JPanel panelLogin = new JPanel() {
+			@Override
+			protected void paintComponent(Graphics g) {
+				super.paintComponent(g);
+				Graphics2D g2d = (Graphics2D) g;
+				GradientPaint gp = new GradientPaint(0, 0, Color.decode("#7fffd4"), 0, getHeight(), Color.decode("#008080"));
+				g2d.setPaint(gp);
+				g2d.fillRect(0, 0, getWidth(), getHeight());
+			}
+		};
 		panelLogin.setBounds(10, 10, 745, 451);
-		panelLogin.setBackground(new Color(127, 255, 212));
 		contentPane.add(panelLogin);
 		panelLogin.setLayout(null);
 
 		JLabel lblMatricola = new JLabel("MATRICOLA");
-		lblMatricola.setForeground(new Color(0, 0, 0));
-		lblMatricola.setFont(new Font("Yu Gothic Light", Font.PLAIN, 35));
+		lblMatricola.setForeground(new Color(255, 255, 255));
+		lblMatricola.setFont(new Font("Tw Cen MT", Font.PLAIN, 35));
 		lblMatricola.setBounds(10, 179, 197, 73);
 		panelLogin.add(lblMatricola);
 
 		textFieldMatricola = new JTextField();
-		textFieldMatricola.setFont(new Font("Yu Gothic Light", Font.PLAIN, 25));
-		textFieldMatricola.setBounds(206, 174, 209, 58);
+		textFieldMatricola.setForeground(new Color(255, 255, 255));
+		textFieldMatricola.setOpaque(false);
+		textFieldMatricola.setFont(new Font("Tw Cen MT", Font.PLAIN, 25));
+		textFieldMatricola.setBounds(193, 189, 209, 58);
 		panelLogin.add(textFieldMatricola);
 		textFieldMatricola.setColumns(10);
 
@@ -74,19 +98,20 @@ public class loginPage extends JFrame {
 		panelLogin.add(lblLogo);
 
 		JLabel lblBolle1 = new JLabel("New label");
-		lblBolle1.setIcon(new ImageIcon("C:\\Users\\aruta\\OneDrive\\Desktop\\bolle.png"));
+		lblBolle1.setIcon(new ImageIcon("C:\\Users\\aruta\\OneDrive\\Desktop\\progetto bd oo\\bolle.png"));
 		lblBolle1.setBounds(363, 70, 221, 242);
 		panelLogin.add(lblBolle1);
 
 		JLabel lblBolle2 = new JLabel("New label");
-		lblBolle2.setIcon(new ImageIcon("C:\\Users\\aruta\\OneDrive\\Desktop\\bolle.png"));
+		lblBolle2.setIcon(new ImageIcon("C:\\Users\\aruta\\OneDrive\\Desktop\\progetto bd oo\\bolle.png"));
 		lblBolle2.setBounds(514, 79, 231, 225);
 		panelLogin.add(lblBolle2);
 
-		JButton btnAccesso = new JButton("accedi");
-		
-		btnAccesso.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
+		JLabel btnAccesso = new JLabel("accedi");
+		btnAccesso.setForeground(new Color(255, 255, 255));
+		btnAccesso.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
 				// cntr.quesryNapoletana(textFieldMatricola.getText(),
 				// textFieldMatricola.getText());
 				stringa = textFieldMatricola.getText();
@@ -95,7 +120,10 @@ public class loginPage extends JFrame {
 						setVisible(false);
 						Accesso.setVisible(true);
 					}
-					else{
+					else if(stringa.charAt(0) == 'r'){
+						setVisible(false);
+						AR.setVisible(true);
+					}else {
 						setVisible(false);
 						Menu.setVisible(true);
 					}
@@ -104,9 +132,17 @@ public class loginPage extends JFrame {
 					JOptionPane.showMessageDialog(null, "sugus");
 				}
 			}
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				btnAccesso.setForeground(Color.black);
+			}
+			@Override
+			public void mouseExited(MouseEvent e) {
+				btnAccesso.setForeground(Color.white);
+			}
 		});
-		btnAccesso.setFont(new Font("Yu Gothic Light", Font.PLAIN, 25));
-		btnAccesso.setBounds(163, 262, 126, 43);
+		btnAccesso.setFont(new Font("Tw Cen MT", Font.PLAIN, 25));
+		btnAccesso.setBounds(207, 282, 78, 30);
 		panelLogin.add(btnAccesso);
 
 	}

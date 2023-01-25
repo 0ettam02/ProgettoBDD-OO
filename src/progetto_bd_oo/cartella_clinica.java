@@ -9,25 +9,24 @@ public class cartella_clinica {
 	
 	private String idCartellaClinica;
 	private String nomeTartaruga;
-	private String infoSpecie,luogoRitrovamento,dataLiberazione,dataAccesso,dataDecesso,descrizione,id_tartaruga;
+	private String infoSpecie,luogoRitrovamento,descrizione,id_tartaruga, data_ingresso;
 	private double lunghezza,larghezza,peso;
 	
 	public cartella_clinica(String idCartellaClinica, String nomeTartaruga, String infoSpecie, String luogoRitrovamento,
-			String dataLiberazione, String dataAccesso, String dataDecesso, String descrizione, String id_tartaruga,
-			double lunghezza, double larghezza, double peso) {
+			String descrizione, String id_tartaruga, String data_ingresso, double lunghezza, double larghezza,
+			double peso) {
 		this.idCartellaClinica = idCartellaClinica;
 		this.nomeTartaruga = nomeTartaruga;
 		this.infoSpecie = infoSpecie;
 		this.luogoRitrovamento = luogoRitrovamento;
-		this.dataLiberazione = dataLiberazione;
-		this.dataAccesso = dataAccesso;
-		this.dataDecesso = dataDecesso;
 		this.descrizione = descrizione;
 		this.id_tartaruga = id_tartaruga;
+		this.data_ingresso = data_ingresso;
 		this.lunghezza = lunghezza;
 		this.larghezza = larghezza;
 		this.peso = peso;
 	}
+
 	public ArrayList<dipendente> getDipendente() {
 		return dipendente;
 	}
@@ -64,24 +63,6 @@ public class cartella_clinica {
 	public void setLuogoRitrovamento(String luogoRitrovamento) {
 		this.luogoRitrovamento = luogoRitrovamento;
 	}
-	public String getDataLiberazione() {
-		return dataLiberazione;
-	}
-	public void setDataLiberazione(String dataLiberazione) {
-		this.dataLiberazione = dataLiberazione;
-	}
-	public String getDataAccesso() {
-		return dataAccesso;
-	}
-	public void setDataAccesso(String dataAccesso) {
-		this.dataAccesso = dataAccesso;
-	}
-	public String getDataDecesso() {
-		return dataDecesso;
-	}
-	public void setDataDecesso(String dataDecesso) {
-		this.dataDecesso = dataDecesso;
-	}
 	public String getDescrizione() {
 		return descrizione;
 	}
@@ -94,6 +75,15 @@ public class cartella_clinica {
 	public void setId_tartaruga(String id_tartaruga) {
 		this.id_tartaruga = id_tartaruga;
 	}
+	
+	public String getData_ingresso() {
+		return data_ingresso;
+	}
+
+	public void setData_ingresso(String data_ingresso) {
+		this.data_ingresso = data_ingresso;
+	}
+
 	public double getLunghezza() {
 		return lunghezza;
 	}
@@ -116,7 +106,7 @@ public class cartella_clinica {
 	public String toString() {
 		return "ID CARTELLA CLINICA " + idCartellaClinica + "\n" + "ID TARTARUGA " +  id_tartaruga + "\n" + "NOME TARTARUGA " + nomeTartaruga + "\n" + 
 			   "INFO SPECIE " + infoSpecie + "\n" + "LUNGHEZZA " + lunghezza + "\n" + "LARGHEZZA " + larghezza + "\n" + "PESO " + peso + "\n" + 
-				"LUOGO RITROVAMENTO " + luogoRitrovamento + "\n" + "DESCRIZIONE " + descrizione;
+				"LUOGO RITROVAMENTO " + luogoRitrovamento + "\n" + "DESCRIZIONE " + descrizione + "\n" +  "DATA INGRESSO " + data_ingresso;
 	}
 
 }
