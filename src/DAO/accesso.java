@@ -41,7 +41,7 @@ public class accesso extends JFrame {
 		accessoDAO AD = new accessoDAO();
 		PA = new primoAccesso(this);
 		VCC = new viewCartellaClinica(this);
-		Riammissione = new riammissione();
+		Riammissione = new riammissione(this);
 		viewStatistiche = new ClasseStatistiche(null, this);
 		//esitoTartarughe esito = new esitoTartarughe(this);
 		
