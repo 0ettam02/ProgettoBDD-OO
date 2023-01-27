@@ -5,17 +5,24 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import controllerDAO.riammissioneDAO;
+
 import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.SwingConstants;
 import javax.swing.JTextField;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.sql.SQLException;
+import javax.swing.JTextArea;
 
 public class riammissione extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField textFieldIdTartaruga;
+	riammissioneDAO RD = new riammissioneDAO();
+	public JTextArea textArea;
 	
 	
 	public riammissione(accesso accesso) {
@@ -57,5 +64,22 @@ public class riammissione extends JFrame {
 		lblIndietro.setFont(new Font("Tw Cen MT", Font.PLAIN, 20));
 		lblIndietro.setBounds(10, 424, 66, 28);
 		panelRiammissione.add(lblIndietro);
+		
+		JLabel lblInvio = new JLabel("invio");
+		lblInvio.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				RD.queryInsertId(textFieldIdTartaruga.getText());
+				textArea.setText(RD.querySelezioneCartellaRiammissione());
+			}
+		});
+		lblInvio.setFont(new Font("Tw Cen MT", Font.PLAIN, 20));
+		lblInvio.setBounds(319, 313, 66, 28);
+		panelRiammissione.add(lblInvio);
+		
+		textArea = new JTextArea();
+		textArea.setBounds(10, 10, 316, 167);
+		panelRiammissione.add(textArea);
 	}
 }
+

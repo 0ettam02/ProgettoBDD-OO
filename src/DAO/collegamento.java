@@ -13,8 +13,8 @@ public class collegamento {
     public collegamento () {
         try {
             Class.forName("org.postgresql.Driver");
-            String url = "jdbc:postgresql://localhost:5432/PROGETTO_BDD_OO";
-            Connection con = DriverManager.getConnection(url, "postgres", "Claud1a1"); 
+            String url = "jdbc:postgresql://localhost:5432/progetto_ob_bdd";
+            Connection con = DriverManager.getConnection(url, "postgres", "matteo"); 
             System.out.println("Connessione OK \n");
         // use the connection to perform SQL operation
             //conn.close();
@@ -36,7 +36,7 @@ public class collegamento {
 		// TODO Auto-generated method stub
 		
 	}
-	public java.beans.Statement createStatement() {
+	public Statement createStatement() {
 		// TODO Auto-generated method stub
 		return null;
 	}
