@@ -10,9 +10,9 @@ public class primoAccessoDAO {
 	
 	//QUERY INSERIMENTO
 	// VASCA--------------------------------------------------------------------------------------------------------------------------
-	public void queryInsertNumeroVasca(String NumeroVacsa, String id_vasca) {
+	public void queryInsertNumeroVasca(String NumeroVacsa) {
 		try {
-			cl.st.executeUpdate("INSERT INTO NumeroVasca VALUES ('" + NumeroVacsa + "','" + id_vasca + "')");
+			cl.st.executeUpdate("INSERT INTO NumeroVasca VALUES ('" + NumeroVacsa + "')");
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

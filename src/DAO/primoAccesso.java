@@ -97,7 +97,7 @@ public class primoAccesso extends JFrame {
 		btnInvio.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				PAD.queryInsertNumeroVasca(textField.getText(), textField.getText());
+				PAD.queryInsertNumeroVasca(textField.getText());
 			}
 			@Override
 			public void mouseEntered(MouseEvent e) {
@@ -113,7 +113,7 @@ public class primoAccesso extends JFrame {
 		btnInvio.setBounds(313, 242, 48, 32);
 		panelPrimoAccesso.add(btnInvio);
 		
-		JButton btnIndietro = new JButton("<--");
+		JButton btnIndietro = new JButton("indietro");
 		btnIndietro.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				setVisible(false);
