@@ -43,6 +43,7 @@ public class accesso extends JFrame {
 		VCC = new viewCartellaClinica(this);
 		Riammissione = new riammissione(this);
 		viewStatistiche = new ClasseStatistiche(null, this);
+		cibo cibo = new cibo(this);
 		//esitoTartarughe esito = new esitoTartarughe(this);
 		
 		
@@ -80,7 +81,7 @@ public class accesso extends JFrame {
 		panel.setLayout(null);
 		
 		textFieldIdTartaruga = new JTextField();
-		textFieldIdTartaruga.setForeground(new Color(255, 255, 255));
+		textFieldIdTartaruga.setForeground(new Color(0, 0, 0));
 		textFieldIdTartaruga.setFont(new Font("Tw Cen MT", Font.PLAIN, 20));
 		textFieldIdTartaruga.setOpaque(false);
 		textFieldIdTartaruga.setBounds(239, 101, 215, 42);
@@ -106,7 +107,7 @@ public class accesso extends JFrame {
 			}
 		});
 		btnPrimoAccesso.setFont(new Font("Tw Cen MT", Font.PLAIN, 20));
-		btnPrimoAccesso.setBounds(275, 190, 150, 42);
+		btnPrimoAccesso.setBounds(274, 163, 150, 30);
 		panel.add(btnPrimoAccesso);
 		
 		JLabel btnRiammissione = new JLabel("RIAMMISSIONE");
@@ -127,7 +128,7 @@ public class accesso extends JFrame {
 		});
 		btnRiammissione.setForeground(new Color(255, 255, 255));
 		btnRiammissione.setFont(new Font("Tw Cen MT", Font.PLAIN, 20));
-		btnRiammissione.setBounds(285, 242, 128, 59);
+		btnRiammissione.setBounds(284, 220, 128, 30);
 		panel.add(btnRiammissione);
 		
 		JLabel btnViewCartellaClinica = new JLabel("VISUALIZZA CARTELLA CLINICA");
@@ -149,7 +150,7 @@ public class accesso extends JFrame {
 		});
 		btnViewCartellaClinica.setForeground(new Color(255, 255, 255));
 		btnViewCartellaClinica.setFont(new Font("Tw Cen MT", Font.PLAIN, 20));
-		btnViewCartellaClinica.setBounds(230, 311, 258, 59);
+		btnViewCartellaClinica.setBounds(230, 277, 258, 28);
 		panel.add(btnViewCartellaClinica);
 		
 		JLabel btnViewStatistiche = new JLabel("VISUALIZZA STATISTICHE");
@@ -170,7 +171,7 @@ public class accesso extends JFrame {
 		});
 		btnViewStatistiche.setForeground(new Color(255, 255, 255));
 		btnViewStatistiche.setFont(new Font("Trebuchet MS", Font.PLAIN, 20));
-		btnViewStatistiche.setBounds(239, 393, 234, 59);
+		btnViewStatistiche.setBounds(239, 332, 234, 30);
 		panel.add(btnViewStatistiche);
 		
 		JLabel lblNewLabel = new JLabel("INSERISCI L'ID DELLA TARTARUGA");
@@ -178,6 +179,27 @@ public class accesso extends JFrame {
 		lblNewLabel.setFont(new Font("Tw Cen MT", Font.PLAIN, 20));
 		lblNewLabel.setBounds(210, 43, 278, 48);
 		panel.add(lblNewLabel);
+		
+		JLabel lblStatisticheCibo = new JLabel("STATISTICHE CIBO");
+		lblStatisticheCibo.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				setVisible(false);
+				cibo.setVisible(true);
+			}
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				lblStatisticheCibo.setForeground(Color.black);
+			}
+			@Override
+			public void mouseExited(MouseEvent e) {
+				lblStatisticheCibo.setForeground(Color.white);
+			}
+		});
+		lblStatisticheCibo.setForeground(Color.WHITE);
+		lblStatisticheCibo.setFont(new Font("Trebuchet MS", Font.PLAIN, 20));
+		lblStatisticheCibo.setBounds(274, 388, 169, 30);
+		panel.add(lblStatisticheCibo);
 		
 		/*JLabel lblEsitoTartarughe = new JLabel("ESITO TARTARUGHE");
 		lblEsitoTartarughe.addMouseListener(new MouseAdapter() {

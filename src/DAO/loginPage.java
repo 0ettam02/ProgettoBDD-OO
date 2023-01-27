@@ -85,7 +85,7 @@ public class loginPage extends JFrame {
 		panelLogin.add(lblMatricola);
 
 		textFieldMatricola = new JTextField();
-		textFieldMatricola.setForeground(new Color(255, 255, 255));
+		textFieldMatricola.setForeground(new Color(0, 0, 0));
 		textFieldMatricola.setOpaque(false);
 		textFieldMatricola.setFont(new Font("Tw Cen MT", Font.PLAIN, 25));
 		textFieldMatricola.setBounds(193, 189, 209, 58);
