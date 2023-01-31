@@ -28,6 +28,7 @@ public class cibo extends JFrame {
 	private JTextField textFieldNumVasca;
 	private JTextField textFieldData;
 	private JLabel lblInvio;
+	private JLabel lblIndietro;
 
 	public cibo(accesso accesso) {
 		
@@ -135,5 +136,19 @@ public class cibo extends JFrame {
 		lblInvio.setFont(new Font("Tw Cen MT", Font.PLAIN, 25));
 		lblInvio.setBounds(305, 416, 56, 36);
 		panelCibo.add(lblInvio);
+		
+		JLabel lblIndietro = new JLabel("indietro");
+		lblIndietro.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				setVisible(false);
+				accesso.setVisible(true);
+			}
+		});
+		lblIndietro.setHorizontalAlignment(SwingConstants.CENTER);
+		lblIndietro.setForeground(Color.BLACK);
+		lblIndietro.setFont(new Font("Tw Cen MT", Font.PLAIN, 25));
+		lblIndietro.setBounds(0, 416, 82, 36);
+		panelCibo.add(lblIndietro);
 	}
 }
