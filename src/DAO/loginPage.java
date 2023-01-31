@@ -25,6 +25,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import javax.swing.SwingConstants;
 
 public class loginPage extends JFrame {
 
@@ -92,20 +93,21 @@ public class loginPage extends JFrame {
 		panelLogin.add(textFieldMatricola);
 		textFieldMatricola.setColumns(10);
 
-		JLabel lblLogo = new JLabel("New label");
-		lblLogo.setIcon(new ImageIcon("C:\\Users\\aruta\\OneDrive\\Desktop\\progetto bd oo\\logo progetto.png"));
-		lblLogo.setBounds(425, 101, 288, 226);
+		JLabel lblLogo = new JLabel("");
+		lblLogo.setHorizontalAlignment(SwingConstants.CENTER);
+		lblLogo.setIcon(new ImageIcon("C:\\Users\\aruta\\OneDrive\\Desktop\\progetto bd oo\\logo2.png"));
+		lblLogo.setBounds(435, 95, 300, 300);
 		panelLogin.add(lblLogo);
 
-		JLabel lblBolle1 = new JLabel("New label");
-		lblBolle1.setIcon(new ImageIcon("C:\\Users\\aruta\\OneDrive\\Desktop\\progetto bd oo\\bolle.png"));
-		lblBolle1.setBounds(363, 70, 221, 242);
-		panelLogin.add(lblBolle1);
-
-		JLabel lblBolle2 = new JLabel("New label");
-		lblBolle2.setIcon(new ImageIcon("C:\\Users\\aruta\\OneDrive\\Desktop\\progetto bd oo\\bolle.png"));
-		lblBolle2.setBounds(514, 79, 231, 225);
-		panelLogin.add(lblBolle2);
+//		JLabel lblBolle1 = new JLabel("New label");
+//		lblBolle1.setIcon(new ImageIcon("C:\\Users\\aruta\\OneDrive\\Desktop\\progetto bd oo\\bolle.png"));
+//		lblBolle1.setBounds(363, 70, 221, 242);
+//		panelLogin.add(lblBolle1);
+//
+//		JLabel lblBolle2 = new JLabel("New label");
+//		lblBolle2.setIcon(new ImageIcon("C:\\Users\\aruta\\OneDrive\\Desktop\\progetto bd oo\\bolle.png"));
+//		lblBolle2.setBounds(514, 79, 231, 225);
+//		panelLogin.add(lblBolle2);
 
 		JLabel btnAccesso = new JLabel("accedi");
 		btnAccesso.setForeground(new Color(255, 255, 255));

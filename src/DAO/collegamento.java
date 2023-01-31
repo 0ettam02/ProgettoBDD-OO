@@ -3,18 +3,19 @@ package DAO;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
 public class collegamento {
     public ResultSet rs;
-    public Statement st;
+    public java.sql.Statement st = null;
     public collegamento () {
         try {
             Class.forName("org.postgresql.Driver");
-            String url = "jdbc:postgresql://localhost:5432/progetto";
-            Connection con = DriverManager.getConnection(url, "postgres", "Password"); 
+            String url = "jdbc:postgresql://localhost:5432/progetto_ob_bdd";
+            Connection con = DriverManager.getConnection(url, "postgres", "matteo"); 
             System.out.println("Connessione OK \n");
         // use the connection to perform SQL operation
             //conn.close();

@@ -30,7 +30,6 @@ public class accesso extends JFrame {
 	private JPanel contentPane;
 	public primoAccesso PA;
 	public viewCartellaClinica VCC;
-	private JTextField textFieldIdTartaruga;
 	public riammissione Riammissione;
 	public ClasseStatistiche viewStatistiche;
 	
@@ -80,20 +79,12 @@ public class accesso extends JFrame {
 		contentPane.add(panel);
 		panel.setLayout(null);
 		
-		textFieldIdTartaruga = new JTextField();
-		textFieldIdTartaruga.setForeground(new Color(0, 0, 0));
-		textFieldIdTartaruga.setFont(new Font("Tw Cen MT", Font.PLAIN, 20));
-		textFieldIdTartaruga.setOpaque(false);
-		textFieldIdTartaruga.setBounds(239, 101, 215, 42);
-		panel.add(textFieldIdTartaruga);
-		textFieldIdTartaruga.setColumns(10);
-		
 		JLabel btnPrimoAccesso = new JLabel("PRIMO ACCESSO");
 		btnPrimoAccesso.setForeground(new Color(255, 255, 255));
 		btnPrimoAccesso.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				AD.queryTarghetta(textFieldIdTartaruga.getText(), false);
+				//AD.queryIdTarghetta(textFieldIdTartaruga.getText());
 				setVisible(false);
 				PA.setVisible(true);
 			}
@@ -107,7 +98,7 @@ public class accesso extends JFrame {
 			}
 		});
 		btnPrimoAccesso.setFont(new Font("Tw Cen MT", Font.PLAIN, 20));
-		btnPrimoAccesso.setBounds(274, 163, 150, 30);
+		btnPrimoAccesso.setBounds(281, 102, 150, 30);
 		panel.add(btnPrimoAccesso);
 		
 		JLabel btnRiammissione = new JLabel("RIAMMISSIONE");
@@ -128,14 +119,14 @@ public class accesso extends JFrame {
 		});
 		btnRiammissione.setForeground(new Color(255, 255, 255));
 		btnRiammissione.setFont(new Font("Tw Cen MT", Font.PLAIN, 20));
-		btnRiammissione.setBounds(284, 220, 128, 30);
+		btnRiammissione.setBounds(291, 161, 128, 30);
 		panel.add(btnRiammissione);
 		
 		JLabel btnViewCartellaClinica = new JLabel("VISUALIZZA CARTELLA CLINICA");
 		btnViewCartellaClinica.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				AD.queryTarghettaRiammissione(textFieldIdTartaruga.getText(), true);
+				//AD.queryTarghettaRiammissione(textFieldIdTartaruga.getText(), true);
 				setVisible(false);
 				VCC.setVisible(true);
 			}
@@ -150,7 +141,7 @@ public class accesso extends JFrame {
 		});
 		btnViewCartellaClinica.setForeground(new Color(255, 255, 255));
 		btnViewCartellaClinica.setFont(new Font("Tw Cen MT", Font.PLAIN, 20));
-		btnViewCartellaClinica.setBounds(230, 277, 258, 28);
+		btnViewCartellaClinica.setBounds(240, 224, 258, 28);
 		panel.add(btnViewCartellaClinica);
 		
 		JLabel btnViewStatistiche = new JLabel("VISUALIZZA STATISTICHE");
@@ -171,14 +162,8 @@ public class accesso extends JFrame {
 		});
 		btnViewStatistiche.setForeground(new Color(255, 255, 255));
 		btnViewStatistiche.setFont(new Font("Trebuchet MS", Font.PLAIN, 20));
-		btnViewStatistiche.setBounds(239, 332, 234, 30);
+		btnViewStatistiche.setBounds(251, 284, 234, 30);
 		panel.add(btnViewStatistiche);
-		
-		JLabel lblNewLabel = new JLabel("INSERISCI L'ID DELLA TARTARUGA");
-		lblNewLabel.setForeground(new Color(0, 0, 0));
-		lblNewLabel.setFont(new Font("Tw Cen MT", Font.PLAIN, 20));
-		lblNewLabel.setBounds(210, 43, 278, 48);
-		panel.add(lblNewLabel);
 		
 		JLabel lblStatisticheCibo = new JLabel("STATISTICHE CIBO");
 		lblStatisticheCibo.addMouseListener(new MouseAdapter() {
@@ -198,28 +183,8 @@ public class accesso extends JFrame {
 		});
 		lblStatisticheCibo.setForeground(Color.WHITE);
 		lblStatisticheCibo.setFont(new Font("Trebuchet MS", Font.PLAIN, 20));
-		lblStatisticheCibo.setBounds(274, 388, 169, 30);
+		lblStatisticheCibo.setBounds(275, 349, 169, 30);
 		panel.add(lblStatisticheCibo);
-		
-		/*JLabel lblEsitoTartarughe = new JLabel("ESITO TARTARUGHE");
-		lblEsitoTartarughe.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				setVisible(false);
-				esito.setVisible(true);
-			}
-			@Override
-			public void mouseEntered(MouseEvent e) {
-				lblEsitoTartarughe.setForeground(Color.black);
-			}
-			@Override
-			public void mouseExited(MouseEvent e) {
-				lblEsitoTartarughe.setForeground(Color.white);
-			}
-		});
-		lblEsitoTartarughe.setForeground(Color.WHITE);
-		lblEsitoTartarughe.setFont(new Font("Tw Cen MT", Font.PLAIN, 20));
-		lblEsitoTartarughe.setBounds(268, 259, 174, 59);
-		panel.add(lblEsitoTartarughe);*/
+	
 	}
 }

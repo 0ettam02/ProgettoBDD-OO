@@ -1,35 +1,12 @@
 package controllerDAO;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import DAO.collegamento;
 
 public class accessoDAO {
-	
-	collegamento cl = new collegamento();
-	
-	// QUERY
-		// TARGHETTA--------------------------------------------------------------------------------------------------------------------------
-		public void queryTarghetta(String id_tartaruga,boolean targhetta) {
-			try {
-				cl.st.executeUpdate("INSERT INTO tartaruga VALUES ('" + id_tartaruga + "','','1','" + targhetta + "')");
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-
-		}
-		
-		// QUERY
-				// TARGHETTA RIAMMISSIONE--------------------------------------------------------------------------------------------------------------------------
-				public void queryTarghettaRiammissione(String id_tartaruga,boolean targhetta) {
-					try {
-						cl.st.executeUpdate("INSERT INTO tartaruga VALUES ('" + id_tartaruga + "','','1','" + targhetta + "')");
-					} catch (SQLException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					}
-
-				}
-
 }

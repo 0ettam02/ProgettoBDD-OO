@@ -25,6 +25,9 @@ import java.awt.event.ActionEvent;
 import java.awt.Color;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import javax.swing.JScrollPane;
+import javax.swing.JComboBox;
+import javax.swing.DefaultComboBoxModel;
 
 public class ClasseStatistiche extends JFrame {
 
@@ -36,6 +39,8 @@ public class ClasseStatistiche extends JFrame {
 	private JTextField textFieldNumeroTartarugheDecedute;
 	private JTextField textFieldDataInizio;
 	private JTextField textFieldDataFine;
+	private JTable tableViewStats;
+	public JComboBox comboBox;
 
 	public ClasseStatistiche(accessoRicercatore accesso, accesso accesso1) {
 		setTitle("statistiche");
@@ -75,10 +80,11 @@ public class ClasseStatistiche extends JFrame {
 		contentPane.add(panelStatistiche);
 		panelStatistiche.setLayout(null);
 		
+		
 		JLabel lblNumeroTartarughe = new JLabel("NUMERO TARTARUGHE");
 		lblNumeroTartarughe.setForeground(new Color(255, 255, 255));
 		lblNumeroTartarughe.setFont(new Font("Tw Cen MT", Font.PLAIN, 20));
-		lblNumeroTartarughe.setBounds(10, 107, 232, 30);
+		lblNumeroTartarughe.setBounds(369, 12, 232, 30);
 		panelStatistiche.add(lblNumeroTartarughe);
 		
 		textFieldNumeroTartarughe = new JTextField();
@@ -86,13 +92,14 @@ public class ClasseStatistiche extends JFrame {
 		textFieldNumeroTartarughe.setOpaque(false);
 		textFieldNumeroTartarughe.setFont(new Font("Tw Cen MT", Font.PLAIN, 20));
 		textFieldNumeroTartarughe.setColumns(10);
-		textFieldNumeroTartarughe.setBounds(10, 136, 232, 45);
+		textFieldNumeroTartarughe.setBounds(357, 46, 232, 45);
+		textFieldNumeroTartarughe.setText(SD.queryNumeroTartarugheTotali());
 		panelStatistiche.add(textFieldNumeroTartarughe);
 		
 		JLabel lblNumeroTartarugheLiberate = new JLabel("NUMERO TARTARUGHE LIBERATE");
 		lblNumeroTartarugheLiberate.setForeground(new Color(255, 255, 255));
 		lblNumeroTartarugheLiberate.setFont(new Font("Tw Cen MT", Font.PLAIN, 20));
-		lblNumeroTartarugheLiberate.setBounds(10, 203, 325, 30);
+		lblNumeroTartarugheLiberate.setBounds(10, 102, 278, 30);
 		panelStatistiche.add(lblNumeroTartarugheLiberate);
 		
 		textFieldNumeroTartarugheLiberate = new JTextField();
@@ -100,7 +107,8 @@ public class ClasseStatistiche extends JFrame {
 		textFieldNumeroTartarugheLiberate.setOpaque(false);
 		textFieldNumeroTartarugheLiberate.setFont(new Font("Tw Cen MT", Font.PLAIN, 20));
 		textFieldNumeroTartarugheLiberate.setColumns(10);
-		textFieldNumeroTartarugheLiberate.setBounds(10, 234, 232, 45);
+		textFieldNumeroTartarugheLiberate.setBounds(20, 131, 232, 45);
+		textFieldNumeroTartarugheLiberate.setText(SD.queryNumeroTartarugheLiberate());
 		panelStatistiche.add(textFieldNumeroTartarugheLiberate);
 		
 		JLabel lblNumeroTartarugheDecedute = new JLabel("NUMERO TARTARUGHE  DECEDUTE");
@@ -114,45 +122,28 @@ public class ClasseStatistiche extends JFrame {
 		textFieldNumeroTartarugheDecedute.setOpaque(false);
 		textFieldNumeroTartarugheDecedute.setFont(new Font("Tw Cen MT", Font.PLAIN, 20));
 		textFieldNumeroTartarugheDecedute.setColumns(10);
-		textFieldNumeroTartarugheDecedute.setBounds(10, 52, 232, 45);
+		textFieldNumeroTartarugheDecedute.setBounds(10, 46, 232, 45);
+		textFieldNumeroTartarugheDecedute.setText(SD.queryNumeroTartarugheMorte());
 		panelStatistiche.add(textFieldNumeroTartarugheDecedute);
-		
-		JLabel lblDataInizio = new JLabel("DATA INIZIO");
-		lblDataInizio.setForeground(new Color(255, 255, 255));
-		lblDataInizio.setFont(new Font("Tw Cen MT", Font.PLAIN, 20));
-		lblDataInizio.setBounds(402, 52, 125, 33);
-		panelStatistiche.add(lblDataInizio);
-		
-		textFieldDataInizio = new JTextField();
-		textFieldDataInizio.setForeground(new Color(255, 255, 255));
-		textFieldDataInizio.setOpaque(false);
-		textFieldDataInizio.setFont(new Font("Tw Cen MT", Font.PLAIN, 20));
-		textFieldDataInizio.setColumns(10);
-		textFieldDataInizio.setBounds(402, 92, 232, 45);
-		panelStatistiche.add(textFieldDataInizio);
-		
-		JLabel lblDataFine = new JLabel("DATA FINE");
-		lblDataFine.setForeground(new Color(255, 255, 255));
-		lblDataFine.setFont(new Font("Tw Cen MT", Font.PLAIN, 20));
-		lblDataFine.setBounds(402, 148, 125, 33);
-		panelStatistiche.add(lblDataFine);
-		
-		textFieldDataFine = new JTextField();
-		textFieldDataFine.setForeground(new Color(255, 255, 255));
-		textFieldDataFine.setOpaque(false);
-		textFieldDataFine.setFont(new Font("Tw Cen MT", Font.PLAIN, 20));
-		textFieldDataFine.setColumns(10);
-		textFieldDataFine.setBounds(402, 180, 232, 45);
-		panelStatistiche.add(textFieldDataFine);
 		
 		JLabel lblInvio = new JLabel("invio");
 		lblInvio.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
+				if(comboBox.getSelectedIndex() == 0) {
+					tableViewStats.setModel(SD.statisticheAnnuali());
+				}else if(comboBox.getSelectedIndex() == 1){
+					tableViewStats.setModel(SD.statisticheMensili());
+				}else if(comboBox.getSelectedIndex() == 2){
+					tableViewStats.setModel(SD.statisticheAnnualiLiberate());
+				}else if(comboBox.getSelectedIndex() == 3){
+					tableViewStats.setModel(SD.statisticheMensiliLiberate());
+				}else if(comboBox.getSelectedIndex() == 4){
+					tableViewStats.setModel(SD.statisticheAnnualiMorte());
+				}else if(comboBox.getSelectedIndex() == 5){
+					tableViewStats.setModel(SD.statisticheMensiliMorte());
+				}
 				
-				textFieldNumeroTartarughe.setText(SD.queryNumeroTartarugheTotali(textFieldDataInizio.getText(), textFieldDataFine.getText()));
-				textFieldNumeroTartarugheDecedute.setText(SD.queryNumeroTartarugheMorte(textFieldDataInizio.getText(), textFieldDataFine.getText()));
-				textFieldNumeroTartarugheLiberate.setText(SD.queryNumeroTartarugheLiberate(textFieldDataInizio.getText(), textFieldDataFine.getText()));
 			}
 			@Override
 			public void mouseEntered(MouseEvent e) {
@@ -165,7 +156,7 @@ public class ClasseStatistiche extends JFrame {
 		});
 		lblInvio.setForeground(new Color(255, 255, 255));
 		lblInvio.setFont(new Font("Tw Cen MT", Font.PLAIN, 25));
-		lblInvio.setBounds(310, 327, 46, 33);
+		lblInvio.setBounds(516, 156, 46, 33);
 		panelStatistiche.add(lblInvio);
 		
 		JLabel lblIndietro = new JLabel("indietro");
@@ -189,17 +180,18 @@ public class ClasseStatistiche extends JFrame {
 		lblIndietro.setBounds(10, 452, 82, 33);
 		panelStatistiche.add(lblIndietro);
 		
-		/*JLabel lblSelezionaData = new JLabel("seleziona data");
-		lblSelezionaData.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				SD.queryInsertStatistiche(textFieldDataInizio.getText(), textFieldDataFine.getText());
-			}
-		});
-		lblSelezionaData.setForeground(Color.WHITE);
-		lblSelezionaData.setFont(new Font("Tw Cen MT", Font.PLAIN, 25));
-		lblSelezionaData.setBounds(451, 239, 148, 33);
-		panelStatistiche.add(lblSelezionaData);*/
+		JScrollPane scrollPaneViewSts = new JScrollPane();
+		scrollPaneViewSts.setBounds(20, 210, 678, 240);
+		panelStatistiche.add(scrollPaneViewSts);
+		
+		tableViewStats = new JTable();
+		scrollPaneViewSts.setViewportView(tableViewStats);
+		
+		comboBox = new JComboBox();
+		comboBox.setFont(new Font("Tw Cen MT", Font.PLAIN, 20));
+		comboBox.setModel(new DefaultComboBoxModel(new String[] {"annuali totali", "mensili totali", "annuali liberate", "mensili liberate", "annuali morte", "mensili morte"}));
+		comboBox.setBounds(357, 146, 149, 54);
+		panelStatistiche.add(comboBox);
 		
 	}
 }

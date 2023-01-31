@@ -2,29 +2,21 @@ package controllerDAO;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
+
+import javax.swing.table.DefaultTableModel;
 
 import DAO.collegamento;
 
 public class statisticheDAO {
 	collegamento cl = new collegamento();
-	
-	// QUERY INSERIMENTO
-		// STATISTICHE--------------------------------------------------------------------------------------------------------------------------
-		public void queryInsertStatistiche(String data_inizio, String data_fine) {
-			try {
-				cl.st.executeUpdate("INSERT INTO statistiche VALUES ('s0001',null ,null,null, '" + data_inizio + "','" + data_fine + "', '0')");
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		}
 				
 				// QUERY NUMERO TARTARUGHE TOTALI IN UN LASSO DI TEMPO
-				public String queryNumeroTartarugheTotali(String data_inizio, String data_fine){
+				public String queryNumeroTartarugheTotali(){
 				    try {
 				        String sql = "SELECT COUNT(cartella_clinica.data_ingresso) as count_ingresso\r\n"
-				                + " FROM cartella_clinica JOIN statistiche ON statistiche.costante = cartella_clinica.costante\r\n"
-				                + "WHERE cartella_clinica.data_ingresso BETWEEN '"+data_inizio+"' AND '"+data_fine+"'";
+				                + " FROM cartella_clinica JOIN statistiche ON cartella_clinica.data_ingresso BETWEEN statistiche.data_inizio AND statistiche.data_fine\r\n"
+				                + "WHERE cartella_clinica.data_ingresso BETWEEN statistiche.data_inizio AND statistiche.data_fine";
 				        ResultSet rs = cl.st.executeQuery(sql);
 				        if (rs.next()) {
 				            int count = rs.getInt(1);
@@ -39,11 +31,11 @@ public class statisticheDAO {
 				}
 				
 				// QUERY NUMERO TARTARUGHE MORTE IN UN LASSO DI TEMPO
-				public String queryNumeroTartarugheMorte(String data_inizio, String data_fine){
+				public String queryNumeroTartarugheMorte(){
 				    try {
 				        String sql = "SELECT COUNT(DISTINCT vita_tartarughe.data_morte) as count_morte\r\n"
-				                + " FROM vita_tartarughe JOIN statistiche ON statistiche.costante = vita_tartarughe.costante\r\n"
-				                + "WHERE vita_tartarughe.data_morte BETWEEN '"+data_inizio+"' AND '"+data_fine+"'";
+				                + " FROM vita_tartarughe JOIN statistiche ON vita_tartarughe.data_morte BETWEEN statistiche.data_inizio AND statistiche.data_fine\r\n"
+				                + "WHERE vita_tartarughe.data_morte BETWEEN statistiche.data_inizio AND statistiche.data_fine";
 				        ResultSet rs = cl.st.executeQuery(sql);
 				        if (rs.next()) {
 				            int count = rs.getInt(1);
@@ -58,11 +50,11 @@ public class statisticheDAO {
 				}
 				
 				// QUERY NUMERO TARTARUGHE LIBERATE IN UN LASSO DI TEMPO
-				public String queryNumeroTartarugheLiberate(String data_inizio, String data_fine){
+				public String queryNumeroTartarugheLiberate(){
 				    try {
 				        String sql = "SELECT COUNT(DISTINCT vita_tartarughe.data_liberazione) as count_liberazione\r\n"
-				                + " FROM vita_tartarughe JOIN statistiche ON statistiche.costante = vita_tartarughe.costante\r\n"
-				                + "WHERE vita_tartarughe.data_liberazione BETWEEN '"+data_inizio+"' AND '"+data_fine+"'";
+				                + " FROM vita_tartarughe JOIN statistiche ON vita_tartarughe.data_liberazione BETWEEN statistiche.data_inizio AND statistiche.data_fine\r\n"
+				                + "WHERE vita_tartarughe.data_liberazione BETWEEN statistiche.data_inizio AND statistiche.data_fine";
 				        ResultSet rs = cl.st.executeQuery(sql);
 				        if (rs.next()) {
 				            int count = rs.getInt(1);
@@ -75,5 +67,157 @@ public class statisticheDAO {
 				    }
 				    return null;
 				}
+				
+				
+//				QUERY STATISTICHE ANNLUALI TARTARUGHE TOTALI
+				public DefaultTableModel statisticheAnnuali() {
+					DefaultTableModel modello = new DefaultTableModel();
+					modello.addColumn("id_tartaruga");
+					modello.addColumn("nome");
+					modello.addColumn("Data Ingresso");
+					modello.addColumn("Anno");
+					try {
+						String queryLogin = "select c.id_tartaruga, c.nome_tartaruga, c.data_ingresso, EXTRACT ( YEAR FROM c.data_ingresso) from cartella_clinica as c order by c.data_ingresso";
+
+						cl.st.getConnection().createStatement(); // roba di background
+						ResultSet rsLogin = cl.st.executeQuery(queryLogin); // esequi la query
+						
+						while (rsLogin.next()) {
+
+							modello.addRow(new Object[] {rsLogin.getString(1), rsLogin.getString(2), rsLogin.getString(3), rsLogin.getString(4)}); 								
+						}
+
+						cl.close();
+					} catch (SQLException e) {
+						e.getStackTrace();
+					}
+					return modello;
+				}
+
+				
+//				QUERY STATISTICHE MENSILI TARTARUGHE TOTALI
+				public DefaultTableModel statisticheMensili() {
+					DefaultTableModel modello = new DefaultTableModel();
+					modello.addColumn("id tartaruga");
+					modello.addColumn("nome");
+					modello.addColumn("Data Ingresso");
+					modello.addColumn("Mese");
+					try {
+						String queryLogin = "select c.id_tartaruga, c.nome_tartaruga, c.data_ingresso, EXTRACT ( MONTH FROM c.data_ingresso) from cartella_clinica as c order by c.data_ingresso";
+
+						Statement statementQueryLogin = cl.st.getConnection().createStatement(); // roba di background
+						ResultSet rsLogin = statementQueryLogin.executeQuery(queryLogin); // esequi la query
+						
+						while (rsLogin.next()) {
+
+							modello.addRow(new Object[] {rsLogin.getString(1), rsLogin.getString(2), rsLogin.getString(3), rsLogin.getString(4)}); 								
+						}
+
+						cl.close();
+					} catch (SQLException e) {
+						e.getStackTrace();
+					}
+					return modello;
+			}
+				
+//              QUERY STATISTICHE ANNLUALI TARTARUGHE LIBERATE
+				public DefaultTableModel statisticheAnnualiLiberate() {
+					DefaultTableModel modello = new DefaultTableModel();
+					modello.addColumn("id_tartaruga");
+					modello.addColumn("nome");
+					modello.addColumn("Data liberazione");
+					modello.addColumn("Anno");
+					try {
+						String queryLogin = "select c.id_tartaruga, c.nome_tartaruga, v.data_liberazione, EXTRACT ( YEAR FROM v.data_liberazione) from cartella_clinica as c join vita_tartarughe as v on c.id_tartaruga = v.id_tartaruga order by v.data_liberazione";
+
+						cl.st.getConnection().createStatement();
+						ResultSet rsLogin = cl.st.executeQuery(queryLogin);
+						
+						while (rsLogin.next()) {
+
+							modello.addRow(new Object[] {rsLogin.getString(1), rsLogin.getString(2), rsLogin.getString(3), rsLogin.getString(4)}); 								
+						}
+
+						cl.close();
+					} catch (SQLException e) {
+						e.getStackTrace();
+					}
+					return modello;
+				}
+				
+				 //QUERY STATISTICHE MENSILI TARTARUGHE LIBERATE
+					public DefaultTableModel statisticheMensiliLiberate() {
+						DefaultTableModel modello = new DefaultTableModel();
+						modello.addColumn("id_tartaruga");
+						modello.addColumn("nome");
+						modello.addColumn("Data liberazione");
+						modello.addColumn("Mese");
+						try {
+							String queryLogin = "select c.id_tartaruga, c.nome_tartaruga, v.data_liberazione, EXTRACT ( MONTH FROM v.data_liberazione) from cartella_clinica as c join vita_tartarughe as v on c.id_tartaruga = v.id_tartaruga order by v.data_liberazione";
+
+							cl.st.getConnection().createStatement();
+							ResultSet rsLogin = cl.st.executeQuery(queryLogin);
+							
+							while (rsLogin.next()) {
+
+								modello.addRow(new Object[] {rsLogin.getString(1), rsLogin.getString(2), rsLogin.getString(3), rsLogin.getString(4)}); 								
+							}
+
+							cl.close();
+						} catch (SQLException e) {
+							e.getStackTrace();
+						}
+						return modello;
+					}
+					
+//	              QUERY STATISTICHE ANNLUALI TARTARUGHE MORTE
+					public DefaultTableModel statisticheAnnualiMorte() {
+						DefaultTableModel modello = new DefaultTableModel();
+						modello.addColumn("id_tartaruga");
+						modello.addColumn("nome");
+						modello.addColumn("Data morte");
+						modello.addColumn("Anno");
+						try {
+							String queryLogin = "select c.id_tartaruga, c.nome_tartaruga, v.data_morte, EXTRACT ( YEAR FROM v.data_morte) from cartella_clinica as c join vita_tartarughe as v on c.id_tartaruga = v.id_tartaruga order by v.data_morte";
+
+							cl.st.getConnection().createStatement();
+							ResultSet rsLogin = cl.st.executeQuery(queryLogin);
+							
+							while (rsLogin.next()) {
+
+								modello.addRow(new Object[] {rsLogin.getString(1), rsLogin.getString(2), rsLogin.getString(3), rsLogin.getString(4)}); 								
+							}
+
+							cl.close();
+						} catch (SQLException e) {
+							e.getStackTrace();
+						}
+						return modello;
+					}
+					
+//		              QUERY STATISTICHE MENSILI TARTARUGHE MORTE
+						public DefaultTableModel statisticheMensiliMorte() {
+							DefaultTableModel modello = new DefaultTableModel();
+							modello.addColumn("id_tartaruga");
+							modello.addColumn("nome");
+							modello.addColumn("Data morte");
+							modello.addColumn("Anno");
+							try {
+								String queryLogin = "select c.id_tartaruga, c.nome_tartaruga, v.data_morte, EXTRACT ( MONTH FROM v.data_morte) from cartella_clinica as c join vita_tartarughe as v on c.id_tartaruga = v.id_tartaruga order by v.data_morte";
+
+								cl.st.getConnection().createStatement();
+								ResultSet rsLogin = cl.st.executeQuery(queryLogin);
+								
+								while (rsLogin.next()) {
+
+									modello.addRow(new Object[] {rsLogin.getString(1), rsLogin.getString(2), rsLogin.getString(3), rsLogin.getString(4)}); 								
+								}
+
+								cl.close();
+							} catch (SQLException e) {
+								e.getStackTrace();
+							}
+							return modello;
+						}
 
 }
