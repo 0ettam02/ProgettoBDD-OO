@@ -26,16 +26,16 @@ public class riammissioneDAO {
 	private String data_ingresso;
 	
 	//QUERY INSERIMENTO ID TARTARUGA
-	public void queryInsertId(String id_tartaruga) {
-		try {
-			cl.st.executeUpdate("INSERT INTO tartaruga VALUES ('" + id_tartaruga + "')");
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
+//	public void queryInsertId(String id_tartaruga) {
+//		try {
+//			cl.st.executeUpdate("INSERT INTO tartaruga VALUES ('" + id_tartaruga + "')");
+//		} catch (SQLException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+//	}
 	
-	//QUERY VISUALIZZAZIONE ID TARTARUGHE
+	//QUERY SELEZIONE ID TARTARUGA E INSERIMENTO NELLA TABELLA
 	public DefaultTableModel VisualizzazioneIdTartaruga() {
 		DefaultTableModel modello = new DefaultTableModel();
 		modello.addColumn("ID TARTARUGA");
@@ -225,8 +225,31 @@ public class riammissioneDAO {
 			        return risultato;
 			    }
 				
+				//QUERY LUOGO RITROVAMENTO
+				public String querySelezioneLuogo(String idtartaruga) {
+					
+					String risultato = new String();
+
+			        try {
+			            String queryLogin = "SELECT c.luogo_ritrovamento FROM cartella_clinica as c WHERE c.id_tartaruga = '" + idtartaruga + "'";
+			                                                                                                        
+			            Statement statementQueryLogin = cl.createStatement();
+			            ResultSet rsLogin = cl.st.executeQuery(queryLogin); 
+
+			            if (rsLogin.next()) {
+
+			                risultato = rsLogin.getString("luogo_ritrovamento");
+			            }
+
+			            cl.close();
+			        } catch (SQLException e) {
+			            e.getStackTrace();
+			        }
+			        return risultato;
+			    }
 				
-				//QUERY DESCRIZIONE
+				
+				//QUERY TARGHETTA
 				public String querySelezioneTarghetta(String idtartaruga) {
 					
 					String risultato = new String();
@@ -249,13 +272,13 @@ public class riammissioneDAO {
 			        return risultato;
 			    }
 
-//QUERY INSERIMENTO ID TARTARUGA
-	public void queryInserimentoDB(String idtartaruga, String id_cartella) {
+//QUERY INSERIMENTO RIAMMISSIONE NEL DB
+	public void queryInserimentoDB(String idtartaruga, String id_cartella, String lunghezza, String larghezza, String peso, String luogo_ritrovamento, String descrizione, String data_ingresso ) {
 		try {
-			cl.st.executeUpdate("INSERT INTO cartella_clinica (id_cartellaclinica, id_tartaruga, nome_tartaruga, info_specie, lunghezza, larghezza, peso, luogo_ritrovamento, descrizione, data_ingresso,costante,targhetta)"
-            		+ "SELECT '" + id_cartella + "',id_tartaruga, nome_tartaruga, info_specie, lunghezza, larghezza, peso, luogo_ritrovamento, descrizione, data_ingresso,costante,targhetta\r\n"
+			cl.st.executeUpdate("INSERT INTO cartella_clinica (id_cartellaclinica, id_tartaruga, nome_tartaruga, info_specie, lunghezza, larghezza, peso, luogo_ritrovamento, descrizione, data_ingresso,targhetta)"
+            		+ "SELECT '" + id_cartella + "',id_tartaruga, nome_tartaruga, info_specie,'" + lunghezza + "','" +  larghezza + "','" + peso + "','" + luogo_ritrovamento + "','" + descrizione + "','" + data_ingresso + "',targhetta\r\n"                             
             		+ "	FROM cartella_clinica\r\n"
-            		+ "	WHERE targhetta = '" + idtartaruga + "' AND costante = " + 0 + "");
+            		+ "	WHERE targhetta = '" + idtartaruga + "'");
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

@@ -165,6 +165,7 @@ public class ClasseStatistiche extends JFrame {
 			public void mouseClicked(MouseEvent e) {
 				setVisible(false);
 				accesso1.setVisible(true);
+				//accesso.setVisible(true);
 			}
 			@Override
 			public void mouseEntered(MouseEvent e) {

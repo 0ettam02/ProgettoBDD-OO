@@ -86,7 +86,7 @@ public class loginPage extends JFrame {
 		panelLogin.add(lblMatricola);
 
 		textFieldMatricola = new JTextField();
-		textFieldMatricola.setForeground(new Color(0, 0, 0));
+		textFieldMatricola.setForeground(new Color(255, 255, 255));
 		textFieldMatricola.setOpaque(false);
 		textFieldMatricola.setFont(new Font("Tw Cen MT", Font.PLAIN, 25));
 		textFieldMatricola.setBounds(193, 189, 209, 58);
@@ -96,7 +96,7 @@ public class loginPage extends JFrame {
 		JLabel lblLogo = new JLabel("");
 		lblLogo.setHorizontalAlignment(SwingConstants.CENTER);
 		lblLogo.setIcon(new ImageIcon("C:\\Users\\aruta\\OneDrive\\Desktop\\progetto bd oo\\logo2.png"));
-		lblLogo.setBounds(435, 95, 300, 300);
+		lblLogo.setBounds(485, 112, 250, 248);
 		panelLogin.add(lblLogo);
 
 //		JLabel lblBolle1 = new JLabel("New label");

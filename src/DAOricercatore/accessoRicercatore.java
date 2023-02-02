@@ -9,6 +9,9 @@ import java.awt.Graphics2D;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import controllerDAO.cartellaClinicaDAO;
+
 import javax.swing.JLabel;
 import java.awt.Font;
 import java.awt.event.MouseAdapter;
@@ -19,6 +22,7 @@ public class accessoRicercatore extends JFrame {
 	private JPanel contentPane;
 	esitoTartarughe esito = new esitoTartarughe(this);
 	ClasseStatistiche statistiche = new ClasseStatistiche(this, null);
+	cartellaClinicaRicercatore CCR = new cartellaClinicaRicercatore(this);
 
 	public accessoRicercatore() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -49,6 +53,7 @@ public class accessoRicercatore extends JFrame {
 				g2d.fillRect(0, 0, getWidth(), getHeight());
 			}
 		};
+		panelAccessoRiceractore.setBackground(new Color(0, 0, 0));
 		panelAccessoRiceractore.setBounds(10, 10, 745, 451);
 		contentPane.add(panelAccessoRiceractore);
 		panelAccessoRiceractore.setLayout(null);
@@ -71,7 +76,7 @@ public class accessoRicercatore extends JFrame {
 			}
 		});
 		lblEsitoTartarughe.setFont(new Font("Tw Cen MT", Font.PLAIN, 25));
-		lblEsitoTartarughe.setBounds(272, 237, 206, 41);
+		lblEsitoTartarughe.setBounds(256, 227, 206, 41);
 		panelAccessoRiceractore.add(lblEsitoTartarughe);
 		
 		JLabel lblVisualizzaStatistiche = new JLabel("VISUALIZZA STATISTICHE");
@@ -92,7 +97,20 @@ public class accessoRicercatore extends JFrame {
 			}
 		});
 		lblVisualizzaStatistiche.setFont(new Font("Tw Cen MT", Font.PLAIN, 25));
-		lblVisualizzaStatistiche.setBounds(252, 309, 261, 41);
+		lblVisualizzaStatistiche.setBounds(236, 299, 261, 41);
 		panelAccessoRiceractore.add(lblVisualizzaStatistiche);
+		
+		JLabel lblCartellaClinica = new JLabel("CARTELLA CLINICA");
+		lblCartellaClinica.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				setVisible(false);
+				CCR.setVisible(true);
+			}
+		});
+		lblCartellaClinica.setForeground(Color.WHITE);
+		lblCartellaClinica.setFont(new Font("Tw Cen MT", Font.PLAIN, 25));
+		lblCartellaClinica.setBounds(256, 147, 206, 41);
+		panelAccessoRiceractore.add(lblCartellaClinica);
 	}
 }
