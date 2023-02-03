@@ -1,6 +1,5 @@
 package DAO;
 
-import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -8,17 +7,12 @@ import javax.swing.border.EmptyBorder;
 
 import controllerDAO.viewCartellaClinicaDAO;
 
-import javax.swing.JButton;
 import java.awt.Font;
 import java.awt.GradientPaint;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
-import java.awt.event.ActionListener;
-import java.util.ArrayList;
-import java.awt.event.ActionEvent;
 import java.awt.Color;
 import javax.swing.JTextField;
-import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JLabel;
 import java.awt.event.MouseAdapter;
@@ -29,6 +23,7 @@ public class viewCartellaClinica extends JFrame {
 	private JPanel contentPane;
 	private JTextArea textFieldCartellaClinica;
 	private JTextField textFieldSceltaId;
+	controller cntr = new controller();
 	
 	public viewCartellaClinica(accesso Accesso) {
 		setTitle("View cartella clinica");
@@ -110,15 +105,11 @@ public class viewCartellaClinica extends JFrame {
 		btnIdCartellaClinica.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				textFieldCartellaClinica.setVisible(true);
-				ArrayList <String> lista = VCCD.querySelezioneCartellaClinica(textFieldSceltaId.getText());
-				String stringa = "";
-				for(String temp:lista) {
-					stringa += temp;
-				}
+				String stringa = cntr.querySelezioneCartellaClinica(VCCD, textFieldCartellaClinica, textFieldSceltaId);
 				textFieldCartellaClinica.setText(stringa);
 				System.out.println(stringa);
 			}
+			
 			@Override
 			public void mouseEntered(MouseEvent e) {
 				btnIdCartellaClinica.setForeground(Color.black);

@@ -1,7 +1,6 @@
 package DAO;
 
 import java.awt.Color;
-import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -19,8 +18,6 @@ import javax.swing.SwingConstants;
 import javax.swing.JTextField;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.sql.SQLException;
-import javax.swing.JTextArea;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 
@@ -31,7 +28,6 @@ public class riammissione extends JFrame {
 	riammissioneDAO RD = new riammissioneDAO();
 	private JTable tableViewId;
 	public String stringa = new String();
-	cartellaClinicaRiammissione CCR = new cartellaClinicaRiammissione();
 	private JTextField textFieldTartaruga;
 	public JPanel panelCartellaClinicaRiammissione;
 	private JTextField textFieldIdCartellaClinica;
@@ -43,6 +39,7 @@ public class riammissione extends JFrame {
 	public JLabel lblInviocc;
 	public JTextField textFieldTarghetta;
 	private JTextField textFieldLuogoRitrovamento;
+	controller cntr = new controller();
 	
 	
 	public riammissione(accesso accesso) {
@@ -141,23 +138,10 @@ public class riammissione extends JFrame {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				
-				stringa = textFieldIdTartaruga.getText();
-				for(int i = 0; i<tableViewId.getRowCount(); i++) {
-					if(stringa.equals(tableViewId.getValueAt(i,0))) {
-						panelRiammissione.setVisible(false);
-						panelCartellaClinicaRiammissione.setVisible(true);
-					}
-					
-				}
-				textFieldTartaruga.setText(RD.queryIdTartaruga(stringa));
-				textFieldIdCartellaClinica.setText(RD.queryIdCartellaClinica(stringa));
-				textFieldLunghezza.setText(RD.queryLunghezza(stringa));
-				textFieldLarghezza.setText(RD.queryLarghezza(stringa));
-				textFieldPeso.setText(RD.queryPeso(stringa));
-				textFieldDescrizione.setText(RD.queryDescrizione(stringa));
-				textFieldDataIngresso.setText(RD.queryDataIngresso(stringa));
-				textFieldTarghetta.setText(RD.querySelezioneTarghetta(stringa));
-				textFieldLuogoRitrovamento.setText(RD.querySelezioneLuogo(stringa));
+				cntr.queryRiammissione(panelRiammissione, stringa,textFieldIdTartaruga,
+						tableViewId, RD, textFieldTartaruga, textFieldIdCartellaClinica, textFieldLunghezza, textFieldLarghezza,
+						textFieldPeso, textFieldDescrizione, textFieldDataIngresso,
+						textFieldTarghetta, textFieldLuogoRitrovamento, panelCartellaClinicaRiammissione);
 			}
 		});
 		

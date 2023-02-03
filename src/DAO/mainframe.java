@@ -15,9 +15,7 @@ public class mainframe extends JFrame {
 	private JPanel contentPane;
 	public loginPage LP;
 
-	/**
-	 * Launch the application.
-	 */
+	
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {

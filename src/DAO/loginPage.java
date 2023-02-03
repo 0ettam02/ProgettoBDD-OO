@@ -1,11 +1,11 @@
 package DAO;
 
-import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import DAOoperatore.accessoOperatore;
 import DAOricercatore.accessoRicercatore;
 import controllerDAO.loginPageDAO;
 
@@ -20,9 +20,7 @@ import java.awt.Graphics2D;
 
 import javax.swing.JTextField;
 import javax.swing.ImageIcon;
-import javax.swing.JButton;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
+
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import javax.swing.SwingConstants;
@@ -31,9 +29,8 @@ public class loginPage extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField textFieldMatricola;
-	public menu Menu;
+	public accessoOperatore AO;
 	public String stringa;
-	public menuMedico menuMedicoVet;
 	public accesso Accesso;
 	public loginPageDAO LPD;
 
@@ -42,8 +39,7 @@ public class loginPage extends JFrame {
 	 */
 	public loginPage() {
 		loginPageDAO LPD = new loginPageDAO();
-		Menu = new menu();
-		menuMedicoVet = new menuMedico();
+		AO = new accessoOperatore();
 		Accesso = new accesso();
 		accessoRicercatore AR = new accessoRicercatore();
 
@@ -99,23 +95,11 @@ public class loginPage extends JFrame {
 		lblLogo.setBounds(485, 112, 250, 248);
 		panelLogin.add(lblLogo);
 
-//		JLabel lblBolle1 = new JLabel("New label");
-//		lblBolle1.setIcon(new ImageIcon("C:\\Users\\aruta\\OneDrive\\Desktop\\progetto bd oo\\bolle.png"));
-//		lblBolle1.setBounds(363, 70, 221, 242);
-//		panelLogin.add(lblBolle1);
-//
-//		JLabel lblBolle2 = new JLabel("New label");
-//		lblBolle2.setIcon(new ImageIcon("C:\\Users\\aruta\\OneDrive\\Desktop\\progetto bd oo\\bolle.png"));
-//		lblBolle2.setBounds(514, 79, 231, 225);
-//		panelLogin.add(lblBolle2);
-
 		JLabel btnAccesso = new JLabel("accedi");
 		btnAccesso.setForeground(new Color(255, 255, 255));
 		btnAccesso.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				// cntr.quesryNapoletana(textFieldMatricola.getText(),
-				// textFieldMatricola.getText());
 				stringa = textFieldMatricola.getText();
 				if (LPD.queryAccessoDip(textFieldMatricola.getText())) {
 					if (stringa.charAt(0) == 'm') {
@@ -125,13 +109,13 @@ public class loginPage extends JFrame {
 					else if(stringa.charAt(0) == 'r'){
 						setVisible(false);
 						AR.setVisible(true);
-					}else {
+					}else if(stringa.charAt(0) == 'o'){
 						setVisible(false);
-						Menu.setVisible(true);
+						AO.setVisible(true);
 					}
 				}
 				else{
-					JOptionPane.showMessageDialog(null, "sugus");
+					JOptionPane.showMessageDialog(null, "inserimento invalido/ninseirsci cartteri validi");
 				}
 			}
 			@Override

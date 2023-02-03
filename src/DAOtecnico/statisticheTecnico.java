@@ -1,4 +1,4 @@
-package DAOricercatore;
+package DAOtecnico;
 
 import java.awt.EventQueue;
 import DAO.*;
@@ -10,6 +10,7 @@ import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
 import DAO.accesso;
+import DAOtecnico.accessoTecnico;
 import controllerDAO.statisticheDAO;
 
 import javax.swing.JLabel;
@@ -29,7 +30,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
 
-public class ClasseStatistiche extends JFrame {
+public class statisticheTecnico extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField textFieldNumeroTartarughe;
@@ -42,7 +43,7 @@ public class ClasseStatistiche extends JFrame {
 	private JTable tableViewStats;
 	public JComboBox comboBox;
 
-	public ClasseStatistiche(accessoRicercatore accesso, accesso accesso1) {
+	public statisticheTecnico(accessoTecnico accesso) {
 		setTitle("statistiche");
 		
 		statisticheDAO SD = new statisticheDAO();
@@ -164,8 +165,7 @@ public class ClasseStatistiche extends JFrame {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				setVisible(false);
-				accesso1.setVisible(true);
-				//accesso.setVisible(true);
+				accesso.setVisible(true);
 			}
 			@Override
 			public void mouseEntered(MouseEvent e) {

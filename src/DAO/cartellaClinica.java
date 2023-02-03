@@ -28,6 +28,7 @@ import java.awt.event.MouseEvent;
 import javax.swing.JScrollPane;
 import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.JTextArea;
 
 public class cartellaClinica extends JFrame {
 
@@ -41,9 +42,9 @@ public class cartellaClinica extends JFrame {
 	private JTextField textFieldLarghezza;
 	private JTextField textFieldPeso;
 	private JTextField textFieldLuogoRitrovamento;
-	private JTextField textFieldDescrizione;
 	private JTextField textFieldDataIngresso;
 	private JLabel lblDataIngresso;
+	public JTextArea textArea;
 
 	public cartellaClinica(primoAccesso primoAccesso) {
 		setTitle("cartella clinica\r\n");
@@ -91,14 +92,11 @@ public class cartellaClinica extends JFrame {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				setVisible(false);
-				primoAccesso.enable(true);
-				CCD.queryIdTartaruga(textFieldIdTartaruga.getText());
-				CCD.queryInsertCartellaClinica(textFieldIdCartellaClinica.getText(), textFieldIdTartaruga.getText(),
-						textFieldNomeTartaruga.getText(), textFieldInfoSpecie.getText(),
-						Double.parseDouble(textFieldLunghezza.getText()),
-						Double.parseDouble(textFieldLarghezza.getText()), Double.parseDouble(textFieldPeso.getText()),
-						textFieldLuogoRitrovamento.getText(), textFieldDescrizione.getText(),
-						textFieldDataIngresso.getText());
+				primoAccesso.setVisible(true);
+				cntr.queryCartellaClinicaDAO(CCD,textFieldIdTartaruga,
+						textFieldIdCartellaClinica, textFieldNomeTartaruga,textFieldInfoSpecie,
+						textFieldLunghezza, textFieldLarghezza, textFieldPeso,
+						textFieldLuogoRitrovamento, textArea,textFieldDataIngresso );
 			}
 
 			@Override
@@ -214,15 +212,8 @@ public class cartellaClinica extends JFrame {
 
 		JLabel lblDescrizione = new JLabel("DESCRIZIONE");
 		lblDescrizione.setFont(new Font("Yu Gothic Light", Font.PLAIN, 20));
-		lblDescrizione.setBounds(495, 529, 232, 33);
+		lblDescrizione.setBounds(495, 100, 232, 33);
 		panelCartellaClinica.add(lblDescrizione);
-
-		textFieldDescrizione = new JTextField();
-		textFieldDescrizione.setOpaque(false);
-		textFieldDescrizione.setFont(new Font("Yu Gothic Light", Font.PLAIN, 20));
-		textFieldDescrizione.setColumns(10);
-		textFieldDescrizione.setBounds(495, 556, 475, 44);
-		panelCartellaClinica.add(textFieldDescrizione);
 
 		textFieldDataIngresso = new JTextField();
 		textFieldDataIngresso.setOpaque(false);
@@ -240,8 +231,8 @@ public class cartellaClinica extends JFrame {
 		scrollPane.setBounds(495, 127, 478, 87);
 		panelCartellaClinica.add(scrollPane);
 		
-		JComboBox comboBox = new JComboBox();
-		comboBox.setModel(new DefaultComboBoxModel(new String[] {"testa"}));
-		scrollPane.setViewportView(comboBox);
+		textArea = new JTextArea();
+		textArea.setToolTipText("testa");
+		scrollPane.setViewportView(textArea);
 	}
 }

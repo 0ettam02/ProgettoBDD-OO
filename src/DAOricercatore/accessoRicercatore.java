@@ -21,7 +21,7 @@ public class accessoRicercatore extends JFrame {
 
 	private JPanel contentPane;
 	esitoTartarughe esito = new esitoTartarughe(this);
-	ClasseStatistiche statistiche = new ClasseStatistiche(this, null);
+	statisticheRicercatore statistiche = new statisticheRicercatore(this);
 	cartellaClinicaRicercatore CCR = new cartellaClinicaRicercatore(this);
 
 	public accessoRicercatore() {

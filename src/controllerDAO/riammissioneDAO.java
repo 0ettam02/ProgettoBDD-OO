@@ -276,7 +276,7 @@ public class riammissioneDAO {
 	public void queryInserimentoDB(String idtartaruga, String id_cartella, String lunghezza, String larghezza, String peso, String luogo_ritrovamento, String descrizione, String data_ingresso ) {
 		try {
 			cl.st.executeUpdate("INSERT INTO cartella_clinica (id_cartellaclinica, id_tartaruga, nome_tartaruga, info_specie, lunghezza, larghezza, peso, luogo_ritrovamento, descrizione, data_ingresso,targhetta)"
-            		+ "SELECT '" + id_cartella + "',id_tartaruga, nome_tartaruga, info_specie,'" + lunghezza + "','" +  larghezza + "','" + peso + "','" + luogo_ritrovamento + "','" + descrizione + "','" + data_ingresso + "',targhetta\r\n"                             
+            		+ "SELECT '" + id_cartella + "','" + idtartaruga + "', nome_tartaruga, info_specie,'" + lunghezza + "','" +  larghezza + "','" + peso + "','" + luogo_ritrovamento + "','" + descrizione + "','" + data_ingresso + "',targhetta\r\n"                             
             		+ "	FROM cartella_clinica\r\n"
             		+ "	WHERE targhetta = '" + idtartaruga + "'");
 		} catch (SQLException e) {

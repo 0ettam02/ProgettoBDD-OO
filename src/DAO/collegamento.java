@@ -34,11 +34,9 @@ public class collegamento {
             }
         }
 	public void close() {
-		// TODO Auto-generated method stub
 		
 	}
 	public Statement createStatement() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 	

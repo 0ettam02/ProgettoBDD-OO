@@ -6,7 +6,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-import DAOricercatore.ClasseStatistiche;
+import DAOricercatore.statisticheRicercatore;
 import DAOricercatore.esitoTartarughe;
 import controllerDAO.accessoDAO;
 
@@ -31,19 +31,19 @@ public class accesso extends JFrame {
 	public primoAccesso PA;
 	public viewCartellaClinica VCC;
 	public riammissione Riammissione;
-	public ClasseStatistiche viewStatistiche;
+	public statisticheMedico statistiche;
+	controller cntr = new controller();
 	
 	public accesso() {
 		setTitle("accesso");
 		setBackground(new Color(127, 255, 212));
 		
-		accessoDAO AD = new accessoDAO();
+		//accessoDAO AD = new accessoDAO();
 		PA = new primoAccesso(this);
 		VCC = new viewCartellaClinica(this);
 		Riammissione = new riammissione(this);
-		viewStatistiche = new ClasseStatistiche(null, this);
+		statistiche = new statisticheMedico(this);
 		cibo cibo = new cibo(this);
-		//esitoTartarughe esito = new esitoTartarughe(this);
 		
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -84,10 +84,10 @@ public class accesso extends JFrame {
 		btnPrimoAccesso.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				//AD.queryIdTarghetta(textFieldIdTartaruga.getText());
 				setVisible(false);
 				PA.setVisible(true);
 			}
+			
 			@Override
 			public void mouseEntered(MouseEvent e) {
 				btnPrimoAccesso.setForeground(Color.black);
@@ -108,6 +108,7 @@ public class accesso extends JFrame {
 				setVisible(false);
 				Riammissione.setVisible(true);
 			}
+			
 			@Override
 			public void mouseEntered(MouseEvent e) {
 				btnRiammissione.setForeground(Color.black);
@@ -126,10 +127,10 @@ public class accesso extends JFrame {
 		btnViewCartellaClinica.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				//AD.queryTarghettaRiammissione(textFieldIdTartaruga.getText(), true);
 				setVisible(false);
 				VCC.setVisible(true);
 			}
+			
 			@Override
 			public void mouseEntered(MouseEvent e) {
 				btnViewCartellaClinica.setForeground(Color.black);
@@ -149,7 +150,7 @@ public class accesso extends JFrame {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				setVisible(false);
-				viewStatistiche.setVisible(true);
+				statistiche.setVisible(true);
 			}
 			@Override
 			public void mouseEntered(MouseEvent e) {
@@ -172,6 +173,7 @@ public class accesso extends JFrame {
 				setVisible(false);
 				cibo.setVisible(true);
 			}
+			
 			@Override
 			public void mouseEntered(MouseEvent e) {
 				lblStatisticheCibo.setForeground(Color.black);
