@@ -7,6 +7,7 @@ import javax.swing.border.EmptyBorder;
 
 import DAOoperatore.accessoOperatore;
 import DAOricercatore.accessoRicercatore;
+import DAOtecnico.accessoTecnico;
 import controllerDAO.loginPageDAO;
 
 import java.awt.Color;
@@ -39,6 +40,7 @@ public class loginPage extends JFrame {
 		AO = new accessoOperatore();
 		Accesso = new accesso();
 		accessoRicercatore AR = new accessoRicercatore();
+		accessoTecnico AT = new accessoTecnico();
 
 		setTitle("login page");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -109,6 +111,9 @@ public class loginPage extends JFrame {
 					}else if(stringa.charAt(0) == 'o'){
 						setVisible(false);
 						AO.setVisible(true);
+					}else {
+						setVisible(false);
+						AT.setVisible(true);
 					}
 				}
 				else{

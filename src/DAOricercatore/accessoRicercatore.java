@@ -107,6 +107,14 @@ public class accessoRicercatore extends JFrame {
 				setVisible(false);
 				CCR.setVisible(true);
 			}
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				lblCartellaClinica.setForeground(Color.black);
+			}
+			@Override
+			public void mouseExited(MouseEvent e) {
+				lblCartellaClinica.setForeground(Color.white);
+			}
 		});
 		lblCartellaClinica.setForeground(Color.WHITE);
 		lblCartellaClinica.setFont(new Font("Tw Cen MT", Font.PLAIN, 25));

@@ -76,6 +76,14 @@ public class accessoOperatore extends JFrame {
 				setVisible(false);
 				CCO.setVisible(true);
 			}
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				lblCartellaClinica.setForeground(Color.black);
+			}
+			@Override
+			public void mouseExited(MouseEvent e) {
+				lblCartellaClinica.setForeground(Color.white);
+			}
 		});
 		lblCartellaClinica.setForeground(new Color(255, 255, 255));
 		lblCartellaClinica.setFont(new Font("Tw Cen MT", Font.PLAIN, 20));
@@ -88,6 +96,14 @@ public class accessoOperatore extends JFrame {
 			public void mouseClicked(MouseEvent e) {
 				setVisible(false);
 				statistiche.setVisible(true);
+			}
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				lblStatistiche.setForeground(Color.black);
+			}
+			@Override
+			public void mouseExited(MouseEvent e) {
+				lblStatistiche.setForeground(Color.white);
 			}
 		});
 		lblStatistiche.setForeground(Color.WHITE);

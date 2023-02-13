@@ -122,11 +122,20 @@ public class cartellaClinicaRicercatore extends JFrame {
 		panelCartellaClinicaRicercatore.add(lblNewLabel_4);
 		
 		lblIndietro = new JLabel("indietro");
+		lblIndietro.setForeground(new Color(255, 255, 255));
 		lblIndietro.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				setVisible(false);
 				accesso.setVisible(true);
+			}
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				lblIndietro.setForeground(Color.black);
+			}
+			@Override
+			public void mouseExited(MouseEvent e) {
+				lblIndietro.setForeground(Color.white);
 			}
 		});
 		lblIndietro.setFont(new Font("Tw Cen MT", Font.PLAIN, 20));
@@ -134,12 +143,21 @@ public class cartellaClinicaRicercatore extends JFrame {
 		panelCartellaClinicaRicercatore.add(lblIndietro);
 		
 		lblInvio = new JLabel("invio");
+		lblInvio.setForeground(new Color(255, 255, 255));
 		lblInvio.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				CCD.queryIdTartaruga(textFieldTartaruga.getText());
 				CCD.queryInsertCartellaClinicaRicercatore(textFieldCartellaClinica.getText(), textFieldTartaruga.getText(), textFieldNomeTartaruga.getText(),textFieldLuogoRitrovamento.getText(), textFieldDataIngresso.getText());
 				
+			}
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				lblInvio.setForeground(Color.black);
+			}
+			@Override
+			public void mouseExited(MouseEvent e) {
+				lblInvio.setForeground(Color.white);
 			}
 		});
 		lblInvio.setFont(new Font("Tw Cen MT", Font.PLAIN, 20));

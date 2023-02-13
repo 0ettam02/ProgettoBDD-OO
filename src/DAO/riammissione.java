@@ -109,6 +109,7 @@ public class riammissione extends JFrame {
 		textFieldIdTartaruga.setColumns(10);
 		
 		JLabel lblIndietro = new JLabel("indietro");
+		lblIndietro.setForeground(new Color(255, 255, 255));
 		lblIndietro.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -134,6 +135,7 @@ public class riammissione extends JFrame {
 		lblInviocc = new JLabel("invio");
 		
 		JLabel lblInvio = new JLabel("invio");
+		lblInvio.setForeground(new Color(255, 255, 255));
 		lblInvio.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -142,6 +144,14 @@ public class riammissione extends JFrame {
 						tableViewId, RD, textFieldTartaruga, textFieldIdCartellaClinica, textFieldLunghezza, textFieldLarghezza,
 						textFieldPeso, textFieldDescrizione, textFieldDataIngresso,
 						textFieldTarghetta, textFieldLuogoRitrovamento, panelCartellaClinicaRiammissione);
+			}
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				lblInvio.setForeground(Color.black);
+			}
+			@Override
+			public void mouseExited(MouseEvent e) {
+				lblInvio.setForeground(Color.white);
 			}
 		});
 		

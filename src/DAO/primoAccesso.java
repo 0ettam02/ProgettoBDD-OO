@@ -19,6 +19,7 @@ import javax.swing.JLabel;
 import java.awt.Color;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import javax.swing.SwingConstants;
 
 public class primoAccesso extends JFrame {
 
@@ -103,25 +104,47 @@ public class primoAccesso extends JFrame {
 		btnInvio.setBounds(313, 242, 48, 32);
 		panelPrimoAccesso.add(btnInvio);
 		
-		JButton btnIndietro = new JButton("indietro");
-		btnIndietro.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
+		JLabel btnIndietro = new JLabel("indietro");
+		btnIndietro.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
 				setVisible(false);
 				Accesso.setVisible(true);
 			}
-		});
-		btnIndietro.setFont(new Font("Yu Gothic Light", Font.PLAIN, 20));
-		btnIndietro.setBounds(10, 452, 153, 32);
-		panelPrimoAccesso.add(btnIndietro);
-		
-		JButton btnNewButton = new JButton("cartella clinica");
-		btnNewButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				setVisible(false);
-				cartellaClinicaTartarughe.setVisible(true);
-				
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				btnIndietro.setForeground(Color.black);
+			}
+			@Override
+			public void mouseExited(MouseEvent e) {
+				btnIndietro.setForeground(Color.white);
 			}
 		});
+		btnIndietro.setForeground(new Color(255, 255, 255));
+		btnIndietro.setBackground(new Color(255, 255, 255));
+		btnIndietro.setFont(new Font("Tw Cen MT", Font.PLAIN, 25));
+		btnIndietro.setBounds(10, 452, 88, 32);
+		panelPrimoAccesso.add(btnIndietro);
+		
+		JLabel btnNewButton = new JLabel("cartella clinica");
+		btnNewButton.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				setVisible(false);
+				cartellaClinicaTartarughe.setVisible(true);
+			}
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				btnNewButton.setForeground(Color.black);
+			}
+			@Override
+			public void mouseExited(MouseEvent e) {
+				btnNewButton.setForeground(Color.white);
+			}
+		});
+		btnNewButton.setForeground(new Color(255, 255, 255));
+		btnNewButton.setHorizontalAlignment(SwingConstants.CENTER);
+		btnNewButton.setOpaque(false);
 		btnNewButton.setFont(new Font("Trebuchet MS", Font.PLAIN, 20));
 		btnNewButton.setBounds(245, 318, 187, 66);
 		panelPrimoAccesso.add(btnNewButton);

@@ -133,9 +133,17 @@ public class cibo extends JFrame {
 			public void mouseClicked(MouseEvent e) {
 				cntr.queryStatisticheCibo(CD, textFieldTipoCibo, textFieldPesoCiboTot, textFieldPesoCiboMan, textFieldNumVasca);
 			}
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				lblInvio.setForeground(Color.black);
+			}
+			@Override
+			public void mouseExited(MouseEvent e) {
+				lblInvio.setForeground(Color.white);
+			}
 		});
 		lblInvio.setHorizontalAlignment(SwingConstants.CENTER);
-		lblInvio.setForeground(Color.BLACK);
+		lblInvio.setForeground(new Color(255, 255, 255));
 		lblInvio.setFont(new Font("Tw Cen MT", Font.PLAIN, 25));
 		lblInvio.setBounds(305, 416, 56, 36);
 		panelCibo.add(lblInvio);
@@ -147,9 +155,17 @@ public class cibo extends JFrame {
 				setVisible(false);
 				accesso.setVisible(true);
 			}
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				lblIndietro.setForeground(Color.black);
+			}
+			@Override
+			public void mouseExited(MouseEvent e) {
+				lblIndietro.setForeground(Color.white);
+			}
 		});
 		lblIndietro.setHorizontalAlignment(SwingConstants.CENTER);
-		lblIndietro.setForeground(Color.BLACK);
+		lblIndietro.setForeground(new Color(255, 255, 255));
 		lblIndietro.setFont(new Font("Tw Cen MT", Font.PLAIN, 25));
 		lblIndietro.setBounds(0, 416, 82, 36);
 		panelCibo.add(lblIndietro);

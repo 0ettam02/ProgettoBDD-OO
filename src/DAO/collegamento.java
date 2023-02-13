@@ -14,8 +14,8 @@ public class collegamento {
     public collegamento () {
         try {
             Class.forName("org.postgresql.Driver");
-            String url = "jdbc:postgresql://localhost:5432/progetto_ob_bdd";
-            Connection con = DriverManager.getConnection(url, "postgres", "matteo"); 
+            String url = "jdbc:postgresql://localhost:5432/progetto";
+            Connection con = DriverManager.getConnection(url, "postgres", "Password"); 
             System.out.println("Connessione OK \n");
         // use the connection to perform SQL operation
             //conn.close();

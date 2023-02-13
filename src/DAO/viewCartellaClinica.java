@@ -64,7 +64,7 @@ public class viewCartellaClinica extends JFrame {
 		panelViewCartellaClinica.setBounds(10, 10, 761, 481);
 		contentPane.add(panelViewCartellaClinica);
 		
-		JLabel btnIndietro = new JLabel("INDIETRO");
+		JLabel btnIndietro = new JLabel("indietro");
 		btnIndietro.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
