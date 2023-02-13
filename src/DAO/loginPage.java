@@ -24,7 +24,6 @@ import javax.swing.ImageIcon;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import javax.swing.SwingConstants;
-
 public class loginPage extends JFrame {
 
 	private JPanel contentPane;
@@ -34,9 +33,7 @@ public class loginPage extends JFrame {
 	public accesso Accesso;
 	public loginPageDAO LPD;
 
-	/**
-	 * Create the frame.
-	 */
+	
 	public loginPage() {
 		loginPageDAO LPD = new loginPageDAO();
 		AO = new accessoOperatore();
@@ -128,7 +125,7 @@ public class loginPage extends JFrame {
 			}
 		});
 		btnAccesso.setFont(new Font("Tw Cen MT", Font.PLAIN, 25));
-		btnAccesso.setBounds(207, 282, 78, 30);
+		btnAccesso.setBounds(220, 283, 78, 30);
 		panelLogin.add(btnAccesso);
 
 	}

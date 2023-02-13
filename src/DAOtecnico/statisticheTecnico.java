@@ -42,6 +42,7 @@ public class statisticheTecnico extends JFrame {
 	private JTextField textFieldDataFine;
 	private JTable tableViewStats;
 	public JComboBox comboBox;
+	controller cntr = new controller();
 
 	public statisticheTecnico(accessoTecnico accesso) {
 		setTitle("statistiche");
@@ -131,21 +132,9 @@ public class statisticheTecnico extends JFrame {
 		lblInvio.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				if(comboBox.getSelectedIndex() == 0) {
-					tableViewStats.setModel(SD.statisticheAnnuali());
-				}else if(comboBox.getSelectedIndex() == 1){
-					tableViewStats.setModel(SD.statisticheMensili());
-				}else if(comboBox.getSelectedIndex() == 2){
-					tableViewStats.setModel(SD.statisticheAnnualiLiberate());
-				}else if(comboBox.getSelectedIndex() == 3){
-					tableViewStats.setModel(SD.statisticheMensiliLiberate());
-				}else if(comboBox.getSelectedIndex() == 4){
-					tableViewStats.setModel(SD.statisticheAnnualiMorte());
-				}else if(comboBox.getSelectedIndex() == 5){
-					tableViewStats.setModel(SD.statisticheMensiliMorte());
-				}
-				
+				cntr.querySelezioneStatsTecnico(SD, comboBox, tableViewStats);
 			}
+			
 			@Override
 			public void mouseEntered(MouseEvent e) {
 				lblInvio.setForeground(Color.black);

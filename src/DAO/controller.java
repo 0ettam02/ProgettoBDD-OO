@@ -2,6 +2,7 @@ package DAO;
 
 import java.util.ArrayList;
 
+import javax.swing.JComboBox;
 import javax.swing.JPanel;
 import javax.swing.JTable;
 import javax.swing.JTextArea;
@@ -10,7 +11,9 @@ import javax.swing.JTextField;
 
 import controllerDAO.cartellaClinicaDAO;
 import controllerDAO.ciboDAO;
+import controllerDAO.primoAccessoDAO;
 import controllerDAO.riammissioneDAO;
+import controllerDAO.statisticheDAO;
 import controllerDAO.viewCartellaClinicaDAO;
 
 public class controller {
@@ -76,12 +79,83 @@ public class controller {
 		textFieldTarghetta.setText(RD.querySelezioneTarghetta(stringa));
 		textFieldLuogoRitrovamento.setText(RD.querySelezioneLuogo(stringa));
 	}
-
-
-
+	
+	protected void queryInserimentoNumVasca(primoAccessoDAO PAD, JTextField textField) {
+		PAD.queryInsertNumeroVasca(textField.getText());
+	}
+	
+	
+	
+	protected void querySceltaStatsMedico(statisticheDAO SD, JComboBox comboBox, JTable tableViewStats) {
+		if(comboBox.getSelectedIndex() == 0) {
+			tableViewStats.setModel(SD.statisticheAnnuali());
+		}else if(comboBox.getSelectedIndex() == 1){
+			tableViewStats.setModel(SD.statisticheMensili());
+		}else if(comboBox.getSelectedIndex() == 2){
+			tableViewStats.setModel(SD.statisticheAnnualiLiberate());
+		}else if(comboBox.getSelectedIndex() == 3){
+			tableViewStats.setModel(SD.statisticheMensiliLiberate());
+		}else if(comboBox.getSelectedIndex() == 4){
+			tableViewStats.setModel(SD.statisticheAnnualiMorte());
+		}else if(comboBox.getSelectedIndex() == 5){
+			tableViewStats.setModel(SD.statisticheMensiliMorte());
+		}
+	}
+	
+	
+	
+	public void querySelezioneStatsOperatore(statisticheDAO SD, JComboBox comboBox, JTable tableViewStats) {
+		if(comboBox.getSelectedIndex() == 0) {
+			tableViewStats.setModel(SD.statisticheAnnuali());
+		}else if(comboBox.getSelectedIndex() == 1){
+			tableViewStats.setModel(SD.statisticheMensili());
+		}else if(comboBox.getSelectedIndex() == 2){
+			tableViewStats.setModel(SD.statisticheAnnualiLiberate());
+		}else if(comboBox.getSelectedIndex() == 3){
+			tableViewStats.setModel(SD.statisticheMensiliLiberate());
+		}else if(comboBox.getSelectedIndex() == 4){
+			tableViewStats.setModel(SD.statisticheAnnualiMorte());
+		}else if(comboBox.getSelectedIndex() == 5){
+			tableViewStats.setModel(SD.statisticheMensiliMorte());
+		}
+	}
+	
+	
+	
+	public void querySelezioneStatsRicercatore(statisticheDAO SD, JComboBox comboBox, JTable tableViewStats) {
+		if(comboBox.getSelectedIndex() == 0) {
+			tableViewStats.setModel(SD.statisticheAnnuali());
+		}else if(comboBox.getSelectedIndex() == 1){
+			tableViewStats.setModel(SD.statisticheMensili());
+		}else if(comboBox.getSelectedIndex() == 2){
+			tableViewStats.setModel(SD.statisticheAnnualiLiberate());
+		}else if(comboBox.getSelectedIndex() == 3){
+			tableViewStats.setModel(SD.statisticheMensiliLiberate());
+		}else if(comboBox.getSelectedIndex() == 4){
+			tableViewStats.setModel(SD.statisticheAnnualiMorte());
+		}else if(comboBox.getSelectedIndex() == 5){
+			tableViewStats.setModel(SD.statisticheMensiliMorte());
+		}
+	}
 
 	
-
 	
+	public void querySelezioneStatsTecnico(statisticheDAO SD, JComboBox comboBox, JTable tableViewStats) {
+		if(comboBox.getSelectedIndex() == 0) {
+			tableViewStats.setModel(SD.statisticheAnnuali());
+		}else if(comboBox.getSelectedIndex() == 1){
+			tableViewStats.setModel(SD.statisticheMensili());
+		}else if(comboBox.getSelectedIndex() == 2){
+			tableViewStats.setModel(SD.statisticheAnnualiLiberate());
+		}else if(comboBox.getSelectedIndex() == 3){
+			tableViewStats.setModel(SD.statisticheMensiliLiberate());
+		}else if(comboBox.getSelectedIndex() == 4){
+			tableViewStats.setModel(SD.statisticheAnnualiMorte());
+		}else if(comboBox.getSelectedIndex() == 5){
+			tableViewStats.setModel(SD.statisticheMensiliMorte());
+		}
+	}
+
+
 
 }

@@ -25,6 +25,7 @@ public class primoAccesso extends JFrame {
 	private JPanel contentPane;
 	private JTextField textField;
 	public cartellaClinica cartellaClinicaTartarughe;
+	controller cntr = new controller();
 	
 	public primoAccesso(accesso Accesso) {
 		setBackground(new Color(127, 225, 212));
@@ -85,8 +86,9 @@ public class primoAccesso extends JFrame {
 		btnInvio.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				PAD.queryInsertNumeroVasca(textField.getText());
+				cntr.queryInserimentoNumVasca(PAD, textField);
 			}
+			
 			@Override
 			public void mouseEntered(MouseEvent e) {
 				btnInvio.setForeground(Color.black);
