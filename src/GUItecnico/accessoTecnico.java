@@ -5,6 +5,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import GUImedico.statisticheMedico;
 
 import java.awt.Color;
 import javax.swing.JLabel;
@@ -20,7 +21,7 @@ public class accessoTecnico extends JFrame {
 
 	private JPanel contentPane;
 	cartellaClinicaTecnico CCT = new cartellaClinicaTecnico(this);
-	statisticheTecnico statistiche = new statisticheTecnico(this);
+	statisticheMedico statistiche = new statisticheMedico(null, this, null, null, "accessoTecnico");
 
 	
 	public accessoTecnico() {

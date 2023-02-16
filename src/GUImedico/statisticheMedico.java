@@ -4,6 +4,9 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import GUIoperatore.accessoOperatore;
+import GUIricercatore.accessoRicercatore;
+import GUItecnico.accessoTecnico;
 import query.statisticheDAO;
 
 import javax.swing.JTable;
@@ -31,7 +34,7 @@ public class statisticheMedico extends JFrame {
 	public JComboBox comboBox;
 	controller cntr = new controller();
 
-	public statisticheMedico(accesso accesso) {
+	public statisticheMedico(accesso accesso,accessoTecnico accessoT, accessoRicercatore AR, accessoOperatore AO, String page) {
 		setTitle("statistiche");
 		
 		statisticheDAO SD = new statisticheDAO();
@@ -139,19 +142,29 @@ public class statisticheMedico extends JFrame {
 		
 		JLabel lblIndietro = new JLabel("indietro");
 		lblIndietro.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				setVisible(false);
-				accesso.setVisible(true);
-			}
-			@Override
-			public void mouseEntered(MouseEvent e) {
-				lblIndietro.setForeground(Color.black);
-			}
-			@Override
-			public void mouseExited(MouseEvent e) {
-				lblIndietro.setForeground(Color.white);
-			}
+		    @Override
+		    public void mouseClicked(MouseEvent e) {
+		        switch (page) {
+		            case "accessoMedico":
+		                setVisible(false);
+		                accesso.setVisible(true);
+		                break;
+		            case "accessoRicercatore":
+		                setVisible(false);
+		                AR.setVisible(true);
+		                break;
+		            case "accessoTecnico":
+		                setVisible(false);
+		                accessoT.setVisible(true);
+		                break;
+		            case "accessoOperatore":
+		                setVisible(false);
+		                AO.setVisible(true);
+		                break;
+		            default:
+		                break;
+		        }
+		    }
 		});
 		lblIndietro.setForeground(Color.WHITE);
 		lblIndietro.setFont(new Font("Tw Cen MT", Font.PLAIN, 25));

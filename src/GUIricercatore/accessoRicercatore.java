@@ -9,6 +9,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import GUImedico.statisticheMedico;
 
 import javax.swing.JLabel;
 import java.awt.Font;
@@ -19,7 +20,7 @@ public class accessoRicercatore extends JFrame {
 
 	private JPanel contentPane;
 	esitoTartarughe esito = new esitoTartarughe(this);
-	statisticheRicercatore statistiche = new statisticheRicercatore(this);
+	statisticheMedico statistiche = new statisticheMedico(null,null, this, null, "accessoRicercatore");
 	cartellaClinicaRicercatore CCR = new cartellaClinicaRicercatore(this);
 
 	public accessoRicercatore() {

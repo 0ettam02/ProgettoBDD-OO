@@ -4,6 +4,9 @@ package GUIoperatore;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import GUImedico.statisticheMedico;
+
 import java.awt.Color;
 import javax.swing.JLabel;
 import java.awt.Font;
@@ -18,7 +21,7 @@ public class accessoOperatore extends JFrame {
 
 	private JPanel contentPane;
 	cartellaClinicaOperatore CCO = new cartellaClinicaOperatore(this);
-	statisticheOperatore statistiche = new statisticheOperatore(this);
+	statisticheMedico statistiche = new statisticheMedico(null, null, null, this, "accessoOperatore");
 
 	
 	public accessoOperatore() {

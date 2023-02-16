@@ -27,11 +27,10 @@ public class accesso extends JFrame {
 		setTitle("accesso");
 		setBackground(new Color(127, 255, 212));
 		
-		//accessoDAO AD = new accessoDAO();
 		PA = new primoAccesso(this);
 		VCC = new viewCartellaClinica(this);
 		Riammissione = new riammissione(this);
-		statistiche = new statisticheMedico(this);
+		statistiche = new statisticheMedico(this, null, null, null, "accessoMedico");
 		cibo cibo = new cibo(this);
 		
 		
