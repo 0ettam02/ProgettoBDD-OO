@@ -75,9 +75,9 @@ public class statisticheMedico extends JFrame {
 		
 		
 		JLabel lblNumeroTartarughe = new JLabel("NUMERO TARTARUGHE");
-		lblNumeroTartarughe.setForeground(new Color(255, 255, 255));
+		lblNumeroTartarughe.setForeground(new Color(0, 0, 0));
 		lblNumeroTartarughe.setFont(new Font("Tw Cen MT", Font.PLAIN, 20));
-		lblNumeroTartarughe.setBounds(369, 12, 232, 30);
+		lblNumeroTartarughe.setBounds(357, 12, 232, 30);
 		panelStatistiche.add(lblNumeroTartarughe);
 		
 		textFieldNumeroTartarughe = new JTextField();
@@ -90,7 +90,7 @@ public class statisticheMedico extends JFrame {
 		panelStatistiche.add(textFieldNumeroTartarughe);
 		
 		JLabel lblNumeroTartarugheLiberate = new JLabel("NUMERO TARTARUGHE LIBERATE");
-		lblNumeroTartarugheLiberate.setForeground(new Color(255, 255, 255));
+		lblNumeroTartarugheLiberate.setForeground(new Color(0, 0, 0));
 		lblNumeroTartarugheLiberate.setFont(new Font("Tw Cen MT", Font.PLAIN, 20));
 		lblNumeroTartarugheLiberate.setBounds(10, 102, 278, 30);
 		panelStatistiche.add(lblNumeroTartarugheLiberate);
@@ -100,12 +100,12 @@ public class statisticheMedico extends JFrame {
 		textFieldNumeroTartarugheLiberate.setOpaque(false);
 		textFieldNumeroTartarugheLiberate.setFont(new Font("Tw Cen MT", Font.PLAIN, 20));
 		textFieldNumeroTartarugheLiberate.setColumns(10);
-		textFieldNumeroTartarugheLiberate.setBounds(20, 131, 232, 45);
+		textFieldNumeroTartarugheLiberate.setBounds(10, 131, 232, 45);
 		textFieldNumeroTartarugheLiberate.setText(SD.queryNumeroTartarugheLiberate());
 		panelStatistiche.add(textFieldNumeroTartarugheLiberate);
 		
 		JLabel lblNumeroTartarugheDecedute = new JLabel("NUMERO TARTARUGHE  DECEDUTE");
-		lblNumeroTartarugheDecedute.setForeground(new Color(255, 255, 255));
+		lblNumeroTartarugheDecedute.setForeground(new Color(0, 0, 0));
 		lblNumeroTartarugheDecedute.setFont(new Font("Tw Cen MT", Font.PLAIN, 20));
 		lblNumeroTartarugheDecedute.setBounds(10, 12, 339, 30);
 		panelStatistiche.add(lblNumeroTartarugheDecedute);
@@ -137,7 +137,7 @@ public class statisticheMedico extends JFrame {
 		});
 		lblInvio.setForeground(new Color(255, 255, 255));
 		lblInvio.setFont(new Font("Tw Cen MT", Font.PLAIN, 25));
-		lblInvio.setBounds(516, 156, 46, 33);
+		lblInvio.setBounds(516, 136, 46, 33);
 		panelStatistiche.add(lblInvio);
 		
 		JLabel lblIndietro = new JLabel("indietro");
@@ -181,7 +181,7 @@ public class statisticheMedico extends JFrame {
 		comboBox = new JComboBox();
 		comboBox.setFont(new Font("Tw Cen MT", Font.PLAIN, 20));
 		comboBox.setModel(new DefaultComboBoxModel(new String[] {"annuali totali", "mensili totali", "annuali liberate", "mensili liberate", "annuali morte", "mensili morte"}));
-		comboBox.setBounds(357, 146, 149, 54);
+		comboBox.setBounds(357, 131, 149, 45);
 		panelStatistiche.add(comboBox);
 		
 	}

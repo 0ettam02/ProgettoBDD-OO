@@ -102,7 +102,7 @@ public class viewCartellaClinica extends JFrame {
 		textFieldCartellaClinica.setFont(new Font("Tw Cen MT", Font.PLAIN, 20));
 		textFieldCartellaClinica.setColumns(10);
 		
-		JLabel btnIdCartellaClinica = new JLabel("inserisci l'ID della\r\ncartella clinica ");
+		JLabel btnIdCartellaClinica = new JLabel("inserisci l'ID della\r\n cartella clinica ");
 		btnIdCartellaClinica.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {

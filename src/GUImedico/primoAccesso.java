@@ -74,11 +74,11 @@ public class primoAccesso extends JFrame {
 		panelPrimoAccesso.add(textField);
 		textField.setColumns(10);
 		
-		JLabel lblNewLabel = new JLabel("inseirire il numero della vasca");
+		JLabel lblNewLabel = new JLabel("inserire il numero della vasca");
 		lblNewLabel.setForeground(new Color(255, 255, 255));
 		lblNewLabel.setBackground(new Color(128, 128, 128));
 		lblNewLabel.setFont(new Font("Tw Cen MT", Font.PLAIN, 25));
-		lblNewLabel.setBounds(184, 100, 315, 66);
+		lblNewLabel.setBounds(191, 100, 299, 66);
 		panelPrimoAccesso.add(lblNewLabel);
 		
 		JLabel btnInvio = new JLabel("invio");
