@@ -73,10 +73,10 @@ public class cartellaClinicaRicercatore extends JFrame {
 		panelCartellaClinicaRicercatore.add(textFieldCartellaClinica);
 		textFieldCartellaClinica.setColumns(10);
 		
-		JLabel lblNewLabel = new JLabel("ID CARTELLA CLINICA\r\n");
-		lblNewLabel.setFont(new Font("Tw Cen MT", Font.PLAIN, 20));
-		lblNewLabel.setBounds(101, 37, 174, 28);
-		panelCartellaClinicaRicercatore.add(lblNewLabel);
+		JLabel lblIdCartellaClinica = new JLabel("ID CARTELLA CLINICA\r\n");
+		lblIdCartellaClinica.setFont(new Font("Tw Cen MT", Font.PLAIN, 20));
+		lblIdCartellaClinica.setBounds(101, 37, 174, 28);
+		panelCartellaClinicaRicercatore.add(lblIdCartellaClinica);
 		
 		textFieldTartaruga = new JTextField();
 		textFieldTartaruga.setOpaque(false);
@@ -95,10 +95,10 @@ public class cartellaClinicaRicercatore extends JFrame {
 		textFieldNomeTartaruga.setBounds(101, 291, 174, 42);
 		panelCartellaClinicaRicercatore.add(textFieldNomeTartaruga);
 		
-		JLabel lblNewLabel_2 = new JLabel("NOME TARTARUGA\r\n");
-		lblNewLabel_2.setFont(new Font("Tw Cen MT", Font.PLAIN, 20));
-		lblNewLabel_2.setBounds(101, 253, 174, 28);
-		panelCartellaClinicaRicercatore.add(lblNewLabel_2);
+		JLabel lblNomeTartaruga = new JLabel("NOME TARTARUGA\r\n");
+		lblNomeTartaruga.setFont(new Font("Tw Cen MT", Font.PLAIN, 20));
+		lblNomeTartaruga.setBounds(101, 253, 174, 28);
+		panelCartellaClinicaRicercatore.add(lblNomeTartaruga);
 		
 		textFieldLuogoRitrovamento = new JTextField();
 		textFieldLuogoRitrovamento.setOpaque(false);
@@ -106,10 +106,10 @@ public class cartellaClinicaRicercatore extends JFrame {
 		textFieldLuogoRitrovamento.setBounds(393, 75, 174, 42);
 		panelCartellaClinicaRicercatore.add(textFieldLuogoRitrovamento);
 		
-		JLabel lblNewLabel_3 = new JLabel("LUOGO RITROVAMENTO");
-		lblNewLabel_3.setFont(new Font("Tw Cen MT", Font.PLAIN, 20));
-		lblNewLabel_3.setBounds(380, 37, 206, 28);
-		panelCartellaClinicaRicercatore.add(lblNewLabel_3);
+		JLabel lblLuogoRitrovamento = new JLabel("LUOGO RITROVAMENTO");
+		lblLuogoRitrovamento.setFont(new Font("Tw Cen MT", Font.PLAIN, 20));
+		lblLuogoRitrovamento.setBounds(380, 37, 206, 28);
+		panelCartellaClinicaRicercatore.add(lblLuogoRitrovamento);
 		
 		textFieldDataIngresso = new JTextField();
 		textFieldDataIngresso.setOpaque(false);
@@ -117,10 +117,10 @@ public class cartellaClinicaRicercatore extends JFrame {
 		textFieldDataIngresso.setBounds(393, 178, 174, 42);
 		panelCartellaClinicaRicercatore.add(textFieldDataIngresso);
 		
-		JLabel lblNewLabel_4 = new JLabel("DATA INGRESSO");
-		lblNewLabel_4.setFont(new Font("Tw Cen MT", Font.PLAIN, 20));
-		lblNewLabel_4.setBounds(408, 140, 147, 28);
-		panelCartellaClinicaRicercatore.add(lblNewLabel_4);
+		JLabel lblDataIngresso = new JLabel("DATA INGRESSO");
+		lblDataIngresso.setFont(new Font("Tw Cen MT", Font.PLAIN, 20));
+		lblDataIngresso.setBounds(408, 140, 147, 28);
+		panelCartellaClinicaRicercatore.add(lblDataIngresso);
 		
 		lblIndietro = new JLabel("indietro");
 		lblIndietro.setForeground(new Color(255, 255, 255));

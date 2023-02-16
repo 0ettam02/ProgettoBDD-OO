@@ -118,7 +118,7 @@ public class loginPage extends JFrame {
 					}
 				}
 				else{
-					JOptionPane.showMessageDialog(null, "inserimento invalido/ninseirsci cartteri validi");
+					JOptionPane.showMessageDialog(null, "inserimento invalido, riprova");
 				}
 			}
 			@Override
