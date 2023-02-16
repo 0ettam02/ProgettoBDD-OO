@@ -65,6 +65,7 @@ public class cartellaClinica extends JFrame {
 				g2d.fillRect(0, 0, getWidth(), getHeight());
 			}
 		};
+		setResizable(false);
 		contentPane.setBackground(new Color(127, 255, 212));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
@@ -111,7 +112,7 @@ public class cartellaClinica extends JFrame {
 		});
 		btnInvio.setForeground(new Color(255, 255, 255));
 		btnInvio.setFont(new Font("Tw Cen MT", Font.PLAIN, 30));
-		btnInvio.setBounds(431, 650, 65, 44);
+		btnInvio.setBounds(431, 661, 65, 33);
 		panelCartellaClinica.add(btnInvio);
 
 		textFieldIdCartellaClinica = new JTextField();
@@ -122,12 +123,12 @@ public class cartellaClinica extends JFrame {
 		textFieldIdCartellaClinica.setColumns(10);
 
 		JLabel lblIdCartellaClinica = new JLabel("ID CARTELLA CLINICA");
-		lblIdCartellaClinica.setFont(new Font("Yu Gothic Light", Font.PLAIN, 20));
+		lblIdCartellaClinica.setFont(new Font("Tw Cen MT", Font.PLAIN, 20));
 		lblIdCartellaClinica.setBounds(10, 10, 220, 40);
 		panelCartellaClinica.add(lblIdCartellaClinica);
 
 		JLabel lblIdCartellaTartaruga = new JLabel("ID TARTARUGA");
-		lblIdCartellaTartaruga.setFont(new Font("Yu Gothic Light", Font.PLAIN, 20));
+		lblIdCartellaTartaruga.setFont(new Font("Tw Cen MT", Font.PLAIN, 20));
 		lblIdCartellaTartaruga.setBounds(10, 100, 147, 33);
 		panelCartellaClinica.add(lblIdCartellaTartaruga);
 
@@ -139,7 +140,7 @@ public class cartellaClinica extends JFrame {
 		panelCartellaClinica.add(textFieldIdTartaruga);
 
 		JLabel lblNomeTartaruga = new JLabel("NOME TARTARUGA");
-		lblNomeTartaruga.setFont(new Font("Yu Gothic Light", Font.PLAIN, 20));
+		lblNomeTartaruga.setFont(new Font("Tw Cen MT", Font.PLAIN, 20));
 		lblNomeTartaruga.setBounds(10, 181, 190, 33);
 		panelCartellaClinica.add(lblNomeTartaruga);
 
@@ -151,7 +152,7 @@ public class cartellaClinica extends JFrame {
 		panelCartellaClinica.add(textFieldNomeTartaruga);
 
 		JLabel lblInfoSpecie = new JLabel("INFO SPECIE");
-		lblInfoSpecie.setFont(new Font("Yu Gothic Light", Font.PLAIN, 20));
+		lblInfoSpecie.setFont(new Font("Tw Cen MT", Font.PLAIN, 20));
 		lblInfoSpecie.setBounds(10, 267, 190, 33);
 		panelCartellaClinica.add(lblInfoSpecie);
 
@@ -163,7 +164,7 @@ public class cartellaClinica extends JFrame {
 		panelCartellaClinica.add(textFieldInfoSpecie);
 
 		JLabel lblLunghezza = new JLabel("LUNGHEZZA");
-		lblLunghezza.setFont(new Font("Yu Gothic Light", Font.PLAIN, 20));
+		lblLunghezza.setFont(new Font("Tw Cen MT", Font.PLAIN, 20));
 		lblLunghezza.setBounds(10, 353, 190, 33);
 		panelCartellaClinica.add(lblLunghezza);
 
@@ -175,7 +176,7 @@ public class cartellaClinica extends JFrame {
 		panelCartellaClinica.add(textFieldLunghezza);
 
 		JLabel lblLarghezza = new JLabel("LARGHEZZA");
-		lblLarghezza.setFont(new Font("Yu Gothic Light", Font.PLAIN, 20));
+		lblLarghezza.setFont(new Font("Tw Cen MT", Font.PLAIN, 20));
 		lblLarghezza.setBounds(10, 440, 190, 33);
 		panelCartellaClinica.add(lblLarghezza);
 
@@ -187,7 +188,7 @@ public class cartellaClinica extends JFrame {
 		panelCartellaClinica.add(textFieldLarghezza);
 
 		JLabel lblPeso = new JLabel("PESO");
-		lblPeso.setFont(new Font("Yu Gothic Light", Font.PLAIN, 20));
+		lblPeso.setFont(new Font("Tw Cen MT", Font.PLAIN, 20));
 		lblPeso.setBounds(10, 529, 190, 33);
 		panelCartellaClinica.add(lblPeso);
 
@@ -199,7 +200,7 @@ public class cartellaClinica extends JFrame {
 		panelCartellaClinica.add(textFieldPeso);
 
 		JLabel lblLuogoRitrovamento = new JLabel("LUOGO RITROVAMENTO");
-		lblLuogoRitrovamento.setFont(new Font("Yu Gothic Light", Font.PLAIN, 20));
+		lblLuogoRitrovamento.setFont(new Font("Tw Cen MT", Font.PLAIN, 20));
 		lblLuogoRitrovamento.setBounds(495, 10, 232, 40);
 		panelCartellaClinica.add(lblLuogoRitrovamento);
 
@@ -211,7 +212,7 @@ public class cartellaClinica extends JFrame {
 		panelCartellaClinica.add(textFieldLuogoRitrovamento);
 
 		JLabel lblDescrizione = new JLabel("DESCRIZIONE");
-		lblDescrizione.setFont(new Font("Yu Gothic Light", Font.PLAIN, 20));
+		lblDescrizione.setFont(new Font("Tw Cen MT", Font.PLAIN, 20));
 		lblDescrizione.setBounds(495, 100, 232, 33);
 		panelCartellaClinica.add(lblDescrizione);
 

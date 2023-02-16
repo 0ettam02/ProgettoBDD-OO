@@ -48,6 +48,7 @@ public class cibo extends JFrame {
 				g2d.fillRect(0, 0, getWidth(), getHeight());
 			}
 		};
+		setResizable(false);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
 		setContentPane(contentPane);

@@ -61,6 +61,7 @@ public class statisticheRicercatore extends JFrame {
 				g2d.fillRect(0, 0, getWidth(), getHeight());
 			}
 		};
+		setResizable(false);
 		contentPane.setBackground(new Color(127, 225, 212));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
