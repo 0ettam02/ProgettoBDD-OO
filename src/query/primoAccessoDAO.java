@@ -13,7 +13,7 @@ public class primoAccessoDAO {
 	
 	public void queryInsertNumeroVasca(String NumeroVacsa) {
 		try {
-			cl.st.executeUpdate("INSERT INTO vasca(id_vasca) VALUES ('" + NumeroVacsa + "')");
+			cl.st.executeUpdate("INSERT INTO vasca(numero_vasca) VALUES ('" + NumeroVacsa + "')");
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -25,7 +25,7 @@ public class primoAccessoDAO {
 	public void queryIdTartaruga(String id_tartaruga) {
 		try {
 			Class.forName("org.postgresql.Driver");
-			String url = "jdbc:postgresql://localhost:5432/progetto_ob_bdd";
+			String url = "jdbc:postgresql://localhost:5432/clone";
 			Connection con = DriverManager.getConnection(url, "postgres", "matteo");
 			System.out.println("Connessione OK \n");
 

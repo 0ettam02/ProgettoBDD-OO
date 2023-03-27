@@ -5,6 +5,7 @@ import java.sql.Statement;
 import javax.swing.table.DefaultTableModel;
 
 import GUImedico.collegamento;
+import entità.tartaruga;
 
 public class riammissioneDAO {
 	collegamento cl = new collegamento();
@@ -254,12 +255,12 @@ public class riammissioneDAO {
 			    }
 				
 				
-	public void queryInserimentoDB(String idtartaruga, String id_cartella, String lunghezza, String larghezza, String peso, String luogo_ritrovamento, String descrizione, String data_ingresso ) {
+	public void queryInserimentoDB(tartaruga t ) {
 		try {
 			cl.st.executeUpdate("INSERT INTO cartella_clinica (id_cartellaclinica, id_tartaruga, nome_tartaruga, info_specie, lunghezza, larghezza, peso, luogo_ritrovamento, descrizione, data_ingresso,targhetta)"
-            		+ "SELECT '" + id_cartella + "','" + idtartaruga + "', nome_tartaruga, info_specie,'" + lunghezza + "','" +  larghezza + "','" + peso + "','" + luogo_ritrovamento + "','" + descrizione + "','" + data_ingresso + "',targhetta\r\n"                             
+            		+ "SELECT '" + t.id_cartella + "','" + t.idtartaruga + "', nome_tartaruga, info_specie,'" + t.lunghezza + "','" +  t.larghezza + "','" + t.peso + "','" + t.luogo_ritrovamento + "','" + t.descrizione + "','" + t.data_ingresso + "',targhetta\r\n"                             
             		+ "	FROM cartella_clinica\r\n"
-            		+ "	WHERE targhetta = '" + idtartaruga + "'");
+            		+ "	WHERE targhetta = '" + t.idtartaruga + "'");
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

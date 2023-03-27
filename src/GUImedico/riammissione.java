@@ -6,6 +6,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import entità.tartaruga;
 import query.riammissioneDAO;
 
 import javax.swing.JLabel;
@@ -167,8 +168,8 @@ public class riammissione extends JFrame {
 			}
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				
-				RD.queryInserimentoDB(textFieldTarghetta.getText(),textFieldIdCartellaClinica.getText(), textFieldLunghezza.getText(), textFieldLarghezza.getText(), textFieldPeso.getText(), textFieldLuogoRitrovamento.getText(), textFieldDescrizione.getText(), textFieldDataIngresso.getText());                        
+				tartaruga t = new tartaruga(textFieldTarghetta.getText(),textFieldIdCartellaClinica.getText(), textFieldLunghezza.getText(), textFieldLarghezza.getText(), textFieldPeso.getText(), textFieldLuogoRitrovamento.getText(), textFieldDescrizione.getText(), textFieldDataIngresso.getText());
+				RD.queryInserimentoDB(t);                        
 				
 			}
 		});

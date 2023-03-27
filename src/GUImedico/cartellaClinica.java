@@ -85,7 +85,7 @@ public class cartellaClinica extends JFrame {
 				cntr.queryCartellaClinicaDAO(CCD,textFieldIdTartaruga,
 						textFieldIdCartellaClinica, textFieldNomeTartaruga,textFieldInfoSpecie,
 						textFieldLunghezza, textFieldLarghezza, textFieldPeso,
-						textFieldLuogoRitrovamento, textArea,textFieldDataIngresso );
+						textFieldLuogoRitrovamento, textArea,textFieldDataIngresso);
 			}
 
 			@Override
